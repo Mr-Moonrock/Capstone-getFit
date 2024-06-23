@@ -1,0 +1,38 @@
+.table-container {
+  margin: 20px;
+  width: 500px;
+
+}
+
+.bmi-table {
+  width: 500px;
+  border-collapse: collapse;
+}
+
+.bmi-table th, .bmi-table td {
+  border: 2px solid rgba(10, 10, 10, 1);
+  text-align: center;
+  padding: 8px;
+  
+}
+
+.bmi-table th {
+  background-color: rgba(10, 10, 10, 1);
+  color: white;
+}
+
+.bmi-table tbody tr:nth-child(even) {
+  background-color: rgba(10, 10, 10, 1);
+  color: #f2f2f2
+
+}
+
+.bmi-table tbody tr:nth-child(odd) {
+  color: rgba(10, 10, 10, 1); 
+  background-color: #f2f2f2;
+}
+
+.bmi-table td {
+  width: 50%; 
+  text-align: center; 
+}

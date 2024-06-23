@@ -1,0 +1,221 @@
+#fullCalendar-full-container {
+  width: 2200px;
+  margin-left: 100px;
+  margin-top: 100px;
+  margin-bottom: 100px;
+}
+
+#calendarComp-dropdown-box {
+  height: 1000px;
+  margin-top: 10px;
+
+}
+
+#calendar-draggable-list {
+  width: 400px;
+  margin-left: 15px;
+}
+
+.list-group-item {
+  height: 50px;
+  margin-top: 5px;
+  border-radius: 5px;
+  background-color: rgba(211, 208, 208, 0.608);
+  font-size: 15px;
+  width: 395px;
+  color: white;
+  padding-top: 2px;
+  padding-left: 10px;
+  padding-right: 10px;
+  padding-bottom: 10px;
+}
+
+.list-group-item:hover {
+  cursor: pointer;
+}
+
+#dropdown-container {
+  width: 450px;
+  background-color: #333;
+  border-radius: 10px;
+  margin-left: 0px;
+  margin-right: 10px;
+  
+}
+
+#fullCalendar-DragNDrop-Header {
+  color: white;
+}
+
+#fullCalendar-container {
+  background-color: #333;
+  border-radius: 10px;
+  color: white;
+  width: 1200px;
+  height: 1215px;
+}
+
+
+
+#calendar-save-btn {
+  margin-bottom: 10px;
+  height: 50px;
+  width: 100%;
+  background-color:rgba(242, 239, 239, 0.5) ;
+  border: none;
+  font-size: 24px;
+}
+
+#calendar-save-btn:hover {
+  background-color: rgba(10, 10, 10, .5);
+  color: white;
+  font-size: 26px;
+}
+
+.fc-prev-button,
+.fc-next-button,
+.fc-today-button  {
+  background-color: rgba(242, 239, 239, 0.5);
+  border: none; 
+}
+
+.fc-dayGridMonth-button,
+.fc-timeGridWeek-button,
+.fc-timeGridDay-button {
+  background-color: rgba(242, 239, 239, 0.5);
+  border: none;
+}
+
+.fc-prev-button:hover,
+.fc-next-button:hover,
+.fc-today-button:hover {
+  background-color: rgba(10, 10, 10, .5);
+  border: none;
+  color: white; 
+}
+
+.fc-dayGridMonth-button:hover,
+.fc-timeGridWeek-button:hover,
+.fc-timeGridDay-button:hover,
+.fc-dayGridMonth-button:active,
+.fc-timeGridWeek-button:active,
+.fc-timeGridDay-button:active  {
+  background-color: rgba(10, 10, 10, .5);
+  border: none;
+  color: white; 
+}
+
+.fc-today-button:disabled {
+  background-color: rgba(242, 239, 239, 0.5);
+  border: none; 
+}
+
+.fc-today-button:active {
+  background-color: rgba(10, 10, 10, 0.5);
+  border: none;
+  color: white;
+}
+
+.fc-daygrid-day {
+  background-color: rgba(242, 239, 239, 0.5); 
+}
+
+.calendar-next-prev-btn {
+  margin-bottom: 10px;
+}
+
+#calendar-next-btn,
+#calendar-prev-btn,
+#calendar-exercise-save-btn {
+  margin-bottom: 1px;
+  height: 50px;
+  width: 100%;
+  background-color:rgba(242, 239, 239, 0.5) ;
+  border: none;
+  font-size: 20px;
+  margin-top: 30px;
+}
+
+#calendar-next-btn:hover,
+#calendar-prev-btn:hover,
+#calendar-exercise-save-btn:hover {
+  background-color: rgba(10, 10, 10, .5);
+  color: white;
+  font-size: 22px;
+}
+
+.fc .fc-col-header-cell-cushion {
+  display: inline-block;
+  padding: 2px 4px;
+}
+
+.additional-exercises-container {
+  border: 1px solid black;
+  width: 420px;
+  background-color: #333;
+  border-radius: 10px;
+  /* margin-left: 1920px; */
+  margin-right: 0px;
+  margin-left: 10px;
+  height: 1200;
+}
+
+
+
+.fc .fc-daygrid-day-frame {
+  min-height: 100%;
+  position: relative;
+  background-color: rgba(242, 239, 239, 0.5) ;
+}
+
+
+.fc .fc-timegrid-slot {
+  border-bottom: 0px;
+  height: 1.5em;
+  background-color: #333;
+}
+
+/* #search-exercise-input {
+  margin-top: 10px;
+}
+
+#calendar-exercise-search-btn {
+  height: 50px;
+  margin-top: 10px;
+  background-color: rgba(242, 239, 239, 0.5);
+  color: white;
+  font-size: 20px;
+}
+
+#calendar-exercise-search-btn:hover {
+  height: 50px;
+  margin-top: 10px;
+  background-color: rgba(10, 10, 10, .5);
+  color: white;
+  font-size: 22px;
+} */
+
+.draggable-exercise-delete-btn {
+  position: absolute;
+  top: 0;
+  right: 0;
+  background-color: transparent;
+  border: none;
+  cursor: pointer;
+  color: black;
+  font-size: 20px;
+  padding-top: 8px;
+}
+
+#drag-n-drop-exercise-container-wrap {
+  max-height: 900px;
+  overflow-y:  auto;
+}
+
+.alert-success {
+  font-size: 20px;
+  margin-left: 0px;
+  color: white;
+  background-color: #333;
+  border: none;
+}

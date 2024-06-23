@@ -1,0 +1,104 @@
+.expandable-card-instructions-btn,
+.expandable-card-calendar-save,
+.back-button {
+  display: inline-block;
+  padding: 8px 16px;
+  background-color: #333;
+  color: #fff;
+  text-decoration: none;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+}
+
+.expandable-card-calendar-save {
+  margin-left: 20px;
+}
+
+.expandable-card-instructions-btn:hover,
+.expandable-card-calendar-save:hover,
+.back-button:hover {
+  background-color:rgba(211, 208, 208, 0.608);
+  color: rgba(10, 10, 10, .5);
+  border: none;
+}
+
+.expandable-card-instructions-btn {
+  margin-left: 5px;
+  display: inline-block;
+  padding: 8px 16px;
+  background-color: #333;
+  color: #fff;
+  text-decoration: none;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+}
+
+#expandable-card-card {
+  width: 500px;
+  height: 650px;
+  padding: 10px;
+  margin-left: 60px;
+  margin-top: 40px;
+  border: 2px solid #333;
+}
+
+.expandable-card-card-text {
+  list-style-type: none;
+  margin-top: 10px;
+  border-radius: 10px;
+  margin-right: 0px;
+  margin-left: -30px;
+  width: calc(100% + 20px);
+  /* width: 450px; */
+  padding-top: 10px;
+  padding-left: 10px;
+  padding-right: 10px;
+  font-size: 18px;
+  word-wrap: break-word;
+}
+
+.expandable-card-btn-container {
+  display: flex;
+  position: absolute;
+  bottom: 20px;
+  width: 500px;
+  right: 0px;
+  left: 10%;
+}
+
+.expandable-card-back-btn-container {
+  display: flex;
+  position: absolute;
+  bottom: 20px;
+  width: 500px;
+  right: 0px;
+  left: 42%;
+}
+
+#expandable-card-subtitle {
+  color: white;
+}
+
+.non-active {
+  color: white;
+}
+
+.non-active:hover {
+  background-color: white;
+  color: black;
+}
+
+.instructions-overlay {
+  margin-top: 0px;
+}
+
+.scrollable-textbox {
+  max-height: 550px;
+  overflow-x: auto;
+}
+
+.expandable-card-instructions-btn {
+  margin-left: 110px;
+}

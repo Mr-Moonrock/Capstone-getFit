@@ -1,0 +1,102 @@
+#login-card-body{
+  border-radius: 10px;
+  border: none;
+  padding: 20px;
+  margin-top: 200px;
+}
+
+#login-card{
+  background-color: rgba(211, 208, 208, 0.608);
+}
+
+#login-header{
+  text-align: center;
+  margin-top: 20px;
+}
+
+#login-input-form-control {
+  width: calc(100% - 4px);
+  margin-top: -10px;
+  margin-bottom: 0px; 
+  border: none;
+  height: 50px;
+}
+
+#login-form-group{
+  margin-top: 30px;
+  margin-bottom: 10px; 
+}
+
+#login-btn {
+  margin-top: 40px;
+  height: 50px;
+  width: 100%;
+  background-color: rgba(10, 10, 10, .5);
+  border: none;
+  font-size: 24px;
+}
+
+#login-btn:hover {
+  background-color: rgba(242, 239, 239, 0.5);
+  color: rgba(10, 10, 10, .5);
+  font-size: 26px;
+}
+
+.background-element {
+  background-image: url('D:\Capstone-Project\GetFit\client\src\images\loginImage.jpg');
+  background-size: cover;
+  background-position: center;
+  height: 1000px;
+  width: 1500px;
+  border-radius: 50px;
+  border: 10px solid black;
+  margin-top: 5%;
+  margin-left: 5%;
+}
+
+.LoginForm {
+  display:block;
+  justify-content: left;
+  width: 600px;
+  margin-left: 50px;
+}
+
+.login-logo-and-title {
+  display: flex;
+  align-items: center; 
+  justify-content: center;
+  margin-top: 20px;
+  margin-bottom: 20px;
+}
+
+.login-logoImage {
+  width: 75px; 
+  border-radius: 50%;
+} 
+
+.login-divider {
+  width: 2px;
+  height: 75px;
+  background-color: black;
+  margin: 0 10px;
+}
+
+.register-link {
+  align-items: right;
+  color: rgba(10, 10, 10, .5);
+}
+
+.register-link:hover {
+  color: rgba(242, 239, 239, 0.5);
+}
+
+.Link{
+  color: black
+}
+
+.login-logo-and-title-container {
+  display: flex;
+  justify-content: center; 
+  align-items: center; 
+  background-color: rgba(211, 208, 208, 0.608); 
+}

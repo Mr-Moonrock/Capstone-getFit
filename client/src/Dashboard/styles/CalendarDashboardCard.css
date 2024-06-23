@@ -1,0 +1,23 @@
+#calendar-dashboard-card-title {
+  font-size: 16px;
+}
+
+#calendar-dashboard-card-subtitle {
+  font-size: 16px;
+}
+
+#dashboard-calendar-card-card {
+  width: 230px;
+  height: 320px;
+  margin-left: 10px;
+  margin-top: 10px;
+  margin-right: 10px;
+  border: 3px solid #333;
+  padding: 5px;
+}
+
+.calendar-dashboard-gif {
+  height: 200px;
+  width: 150px;
+  padding: 5px;
+}

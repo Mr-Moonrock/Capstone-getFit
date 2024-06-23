@@ -1,0 +1,16 @@
+#CalendarHomepage-container {
+  width: 600px;
+}
+
+#CalendarHomepage-header {
+  align-items: center;
+  font-size: 50px;
+  margin-left: 200px;
+}
+
+.CalendarHomepage-paragraph {
+  font-size: 26px;
+  color: white;
+  padding-left: 45px;
+  margin-left: 170px;
+}

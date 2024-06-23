@@ -1,0 +1,247 @@
+.Homepage {
+  margin-left: 100px;
+}
+
+.homepage-intro-container {
+  width: 1600px;
+  height: 800px;
+  margin-left: 50px;
+  margin-top: 20px;
+  background-color: rgb(228, 124, 55);
+  border-radius: 10px;
+}
+
+.homepage-intro-header,
+.homepage-lifestyle-header {
+  font-size: 50px;
+  /* color: white; */
+  font-family: 'Times New Roman', Times, serif;
+  margin-top: 50px;
+  margin-left: 10px;
+}
+
+.homepage-intro-left-container {
+  width: 400px;
+  height: 750px;
+  margin-right: 0px;
+  margin: 0px;
+  margin-top: 200px;
+  margin-left: 15px;
+}
+
+.homepage-side-by-side {
+  margin-top: 0px;
+  margin-left: 10px;
+  display: flex;
+}
+
+.homepage-intro-paragraph {
+  font-size: 30px;
+  margin-left: 10px;
+} 
+
+.homepage-intro-img {
+  height: 800px;
+  width: 1180px;
+  margin-left: 10px;
+  margin-bottom: 0px;
+  border: 5px solid black;
+  border-radius: 10px;
+
+}
+
+#homepage-intro-image {
+  height: 750px;
+  width: 1200px;
+  margin-top: 0px;
+  
+}
+
+.homepage-join-now-btn,
+.homepage-lifestyleChanges-btn {
+  margin-left: 100px;
+}
+
+.bmiInfo-btn {
+  margin-left: 130px;
+}
+
+.homepage-join-now-btn,
+.bmiInfo-btn,
+.homepage-lifestyleChanges-btn,
+.equipment-btn, 
+.classes-btn {
+  height: 60px;
+  width: 175px;
+  border-radius: 10px;
+  background-color: rgb(50, 45, 45);
+  border: none;
+  color: white;
+}
+
+.homepage-join-now-btn:hover,
+.bmiInfo-btn:hover,
+.homepage-lifestyleChanges-btn:hover,
+.equipment-btn:hover,
+.classes-btn:hover {
+  height: 60px;
+  width: 200px;
+  border-radius: 10px;
+  background-color: white;
+  border: none;
+  color: rgb(50, 45, 45);
+  font-size: 24px;
+}
+
+.homepage-bmi-header {
+  font-size: 50px;
+}
+
+.homepage-bmi-container {
+  border: 1px solid white;
+  height: 770px;
+  width: 770px;
+  margin-top: 20px;
+  margin-left: 60px;
+  background-color: rgb(246, 207, 207);
+  border-radius: 10px;
+}
+
+.homepage-calendar-container {
+  border: 1px solid white;
+  height: 770px;
+  width: 770px;
+  margin-top: 20px;
+  margin-left: 20px;
+  background-color: rgb(22, 92, 93);
+  border-radius: 10px;
+  color: white
+}
+
+.homepage-calendar-Image {
+  width: 550px;
+  height: 500;
+  margin-top: 30px;
+  margin-left: 110px;
+}
+
+.homepage-lifestyle-changes-container {
+  border: 1px solid white;
+  height: 770px;
+  width: 770px;
+  margin-top: 20px;
+  margin-left: 40px;
+  background-color: rgb(249, 204, 40);
+}
+
+.homepage-lifestyle-container {
+  width: 1600px;
+  height: 800px;
+  margin-left: 50px;
+  margin-top: 20px;
+  background-color: black;
+  border-radius: 10px;
+  color: white;
+  
+}
+
+.homepage-lifestyle-img {
+  height: 800px;
+  width: 1180px;
+  margin-left: -25px;
+  margin-bottom: 0px;
+  border: 5px solid black;
+  border-radius: 10px;
+  margin-right: 0px;
+}
+
+.homepage-lifestyle-right-container {
+  margin-left: -16px;
+  width: 600px;
+  height: 800px;
+  margin-right: 0px;
+  background-color: rgb(249, 204, 40);
+  border-radius: 10px;
+  padding-left: 35px;
+  padding-right: 35px;
+}
+
+.homepage-lifestyle-header {
+  margin-top: 200px;
+}
+
+.coming-soon-side-by-side {
+  background-color: rgb(86, 173, 232);
+  height: 1000px;
+  width: 1600px;
+  margin-left: 50px;
+  margin-top: 20px;
+  margin-bottom: 50px;
+  border-radius: 10px;
+}
+
+.classes-img {
+  height: 500px;
+  width: 800px;
+  margin-left: 800px;
+  border: 5px solid black;
+}
+
+.equipment-img {
+  height: 500px;
+  width: 800px;
+  border: 5px solid black;
+}
+
+.coming-soon-intro-container{
+  width: 800px;
+  height: 500px;
+  border: 2px solid white;
+  margin-top: -500px;
+  
+}
+
+.equipment-intro-container {
+  border: 2px solid white;
+  height: 500px;
+  width: 800px;
+  margin-left: 800px;
+  margin-top: -500px;
+}
+
+.coming-soon-intro-header {
+  color: white;
+  margin-top: 100px;
+}
+
+.equipment-intro-header {
+  color: white;
+  margin-top: 100px;
+}
+
+.equipment-btn {
+  margin-left: 310px;
+  margin-top: 20px;
+}
+
+.classes-btn {
+  margin-left: 300px;
+  margin-top: 20px
+}
+
+.equipment-intro-header,
+.coming-soon-intro-header {
+  font-size: 50px;
+}
+
+.coming-soon-online-classes {
+  font-size: 30px;
+  padding-left: 50px;
+  padding-right: 50px;
+}
+
+.equipment-intro-paragraph {
+  font-size: 30px;
+  padding-left: 50px;
+  padding-right: 50px;
+}

@@ -1,0 +1,69 @@
+#calendarDashboard-container {
+  padding: 10px;
+  margin-bottom: 50px;
+  margin-top: 20px;
+}
+
+#calendar-dashboard-card-body {
+  width: 100%;
+}
+
+.workout-card {
+  padding: 5px;
+  box-sizing: border-box;
+}
+
+.nav-tabs .nav-link:active 
+.date-text:active,
+.time-text:active {
+  font-size: 17px;
+  color: black;
+}
+
+.date-text,
+.time-text {
+  font-size: 17px;
+  color: black;
+}
+
+#workout-nav-tabs {
+  background-color: rgba(242, 239, 239, 0.1);
+  color: black;
+}
+
+.card-header-tabs .nav-link.active {
+  color: black;
+}
+
+.calendar-dashboard-btn {
+  margin-top: 40px;
+  height: 50px;
+  width: 25%;
+  background-color:#333;
+  border: none;
+  font-size: 24px;
+  color: white;
+  border-radius: 10px;
+}
+
+.calendar-dashboard-btn:hover {
+  margin-top: 40px;
+  height: 50px;
+  width: 25%;
+  background-color: rgba(242, 239, 239, 0.5);
+  border: none;
+  font-size: 24px;
+  color: black;
+}
+
+.calendar-dashboard-card-body {
+  height: 1290px;
+}
+
+
+
+
+
+
+
+

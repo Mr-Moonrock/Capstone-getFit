@@ -1,0 +1,35 @@
+.navbar {
+  position: fixed;
+  top: 0;
+  width: 100%;
+  z-index: 1000;
+  display: flex;
+  justify-content: space-between;
+  background-color: #333;
+  padding: 10px;
+  margin-left: 0px;
+}
+
+.navbar-nav {
+  display: flex;
+  list-style-type: none;
+  margin: 0;
+  padding: 0;
+}
+
+.navbar-nav li {
+  margin-right: 30px; 
+}
+
+.navbar-nav li:last-child {
+  margin-right: 0; 
+}
+
+.navbar-text {
+  margin-right: 25px; 
+}
+
+#dropdownMenuLink {
+  background-color: #333;
+  border: none;
+}

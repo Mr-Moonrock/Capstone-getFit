@@ -1,0 +1,30 @@
+.bmi-result-card-container {
+  color: black;
+  padding: 20px;
+  border-radius: 10px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+}
+
+.bmi-result-card-container h3 {
+  margin-top: 0;
+}
+
+.bmi-result-card-container p {
+  font-size: 18px;
+  margin: 10px 0;
+}
+
+.bmi-result-card-container span {
+  font-weight: bold;
+}
+
+.bmi-result-card-container .btn {
+  display: block;
+  margin-top: 20px;
+  
+  height: 50px;
+  width: 100%;
+  background-color: rgba(10, 10, 10, .5);
+  border: none;
+  font-size: 24px;
+}

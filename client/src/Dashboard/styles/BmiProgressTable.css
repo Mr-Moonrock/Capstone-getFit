@@ -1,0 +1,20 @@
+#bmi-progressTable {
+  border: 1px solid black;
+  width: 750px;
+  /* background-color: rgb(38, 38, 40);
+  color: rgb(38, 38, 40); */
+  font-size: 17px;
+  height: 225px;
+  
+}
+
+#striped-coloumn {
+  background-color: white;
+  color: #333;
+  
+}
+#light-striped-column {
+  background-color: rgba(242, 239, 239, 0.5);
+  color: white;
+ 
+}

@@ -1,0 +1,27 @@
+.userInfo-container {
+  border: 1px solid black;
+  width: 455px;
+  border-radius: 10px;
+  margin-top: 200px;
+  height: 520px;
+  background-color: #333;
+}
+
+.userInfo-heading {
+  margin-top: 20px;
+  color: white;
+  font-size: 20px;
+}
+
+.weight-display,
+.age-display, 
+.height-display,
+.waist-display,
+.neck-display,
+.hip-display,
+.fitnessLevel-display {
+  margin-top: 10px;
+  font-size: 30px;
+  color: rgba(242, 239, 239, 0.5);
+  padding: 10px;
+}

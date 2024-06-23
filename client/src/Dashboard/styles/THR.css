@@ -1,0 +1,22 @@
+.thr-container {
+  border: 1px solid black;
+  width: 335px;
+  border-radius: 10px;
+  margin-left: 820px;
+  margin-top: -365px;
+  background-color: #333;
+  height: 185px;
+}
+
+.thr-heading {
+  margin-top: 20px;
+  font-size: 20px;
+  color: white;
+}
+
+.thrMax-display,
+.thrMin-display {
+  margin-top: 25px;
+  font-size: 30px;
+  color: rgba(242, 239, 239, 0.5);
+}

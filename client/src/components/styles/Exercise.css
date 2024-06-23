@@ -1,0 +1,41 @@
+#exercise-title {
+  font-size: .7em;
+  margin: 0;
+  white-space: nowrap;
+}
+
+#exercise-card {
+  width: 250px;
+  height: 50px;
+  margin-bottom: 5px;
+  margin-top: 5px;
+}
+
+#exercise-card-body {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100%;
+}
+
+#exercise-card-container {
+  margin-bottom: 5px;
+}
+
+#form-select-bodypart {
+  width: 250px;
+}
+
+#form-select-limit {
+  width: 250px;
+}
+
+.form-select {
+  height: 40px;
+  margin-bottom: 10px;
+}
+
+#find-exercise-btn {
+  font-size: .8em;
+  
+}

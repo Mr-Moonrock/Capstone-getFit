@@ -1,0 +1,22 @@
+.bmr-container {
+  border: 1px solid black;
+  width: 450px;
+  border-radius: 10px;
+  margin-left: 1173px;
+  margin-top: -980px;
+  background-color: #333;
+  height: 170px;
+}
+
+.bmr-heading {
+  margin-top: 20px;
+  font-size: 20px;
+  color: white;
+}
+
+.bmr-display {
+  margin-top: 10px;
+  font-size: 30px;
+  color: rgba(242, 239, 239, 0.5);
+  padding: 10px;
+}

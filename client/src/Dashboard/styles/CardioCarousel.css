@@ -1,0 +1,103 @@
+.cardio-carousel-img-container {
+  width: 455px;
+  height: 450px;
+  object-fit: cover;
+  background-color: black;
+  position: relative;
+  padding-top: 56.25%;
+  border: 2px solid;
+  margin-top: 0px;
+}
+
+.cardio-carousel-container {
+  margin: 0 auto;
+  overflow: hidden;
+  border-radius: 5px;
+  border: 2px solid;
+  margin-top: 0px;
+  width: 455px;
+  margin-left: -15px;
+  margin-top: 2px;
+}
+
+.cardio-overlay-image {
+  position: absolute;
+  background-position: center;
+  background-size: cover;
+  opacity: 0.5;
+  top: 0;
+  bottom: 0;
+  left: 0;
+  right: 0;
+}
+
+.cardio-overlay-image img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+.cardio-carousel-caption {
+  margin-left: 0px;
+  top: 0px;
+}
+
+.cardio-carousel-control-prev,
+.cardio-carousel-control-next {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.cardio-carousel-control-prev,
+.cardio-carousel-control-next {
+  border-radius: 50%;
+  color: black;
+}
+
+.cardio-carousel-control-prev-icon,
+.cardio-carousel-control-next-icon {
+  width: 50px;
+  height: 50px;
+}
+
+.cardio-carousel-control-prev {
+  left: 0;
+}
+
+.cardio-carousel-control-next {
+  right: 0;
+}
+
+.cardio-carousel-control-prev-icon,
+.cardio-carousel-control-next-icon {
+  font-size: 24px;
+}
+
+.cardio-carousel-caption,
+.cardio-carousel-caption * {
+  user-select: none;
+}
+
+.cardio-carousel-btn {
+  position: absolute;
+  font-size: 18px;
+  width: 150px;
+  padding: 10px;
+  margin-left: -75px;
+  margin-top: 280px;
+  background-color: rgba(10, 10, 10, 1);
+  border: none;
+  color: white;
+  border-radius: 10px;
+  text-decoration: none;
+  height: 50px;
+}
+
+.cardio-carousel-btn:hover {
+  background-color: rgba(242, 239, 239, 0.5);
+  
+}
+
+
+

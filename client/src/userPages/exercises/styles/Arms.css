@@ -1,0 +1,54 @@
+.arms-card-slider-btn-prev,
+.arms-card-slider-btn-next {
+  margin-top: 40px;
+  height: 50px;
+  width: 25%;
+  background-color: #333;
+  border: none;
+  font-size: 24px;
+  color: white;
+  border-radius: 10px;
+}
+
+.arms-card-slider-btn-prev:hover,
+.arms-card-slider-btn-next:hover {
+  background-color: rgba(242, 239, 239, 0.5);
+  color: rgba(10, 10, 10, .5);
+  font-size: 26px;
+}
+
+.arms-prev,
+.arms-next {
+  margin-top: 40px;
+  height: 50px;
+  width: 45%;
+  background-color:  #333;
+  border: none;
+  font-size: 24px;
+  border-radius: 5px;
+  margin-left: 10px;
+  color: white;
+}
+
+.arms-prev:hover,
+.arms-next:hover {
+  background-color: rgba(242, 239, 239, 0.5);
+  color: rgba(10, 10, 10, .5);
+  font-size: 26px;
+}
+
+#arms-nav-tabs {
+  background-color: #333;
+  color: white;
+}
+
+#arms-container {
+  background-color: rgba(242, 239, 239, 0.5);
+  margin-bottom: 100px;
+  margin-top: 100px;
+}
+
+.arms-nav-link {
+  background-color: #333;
+  border: 1px solid white;
+}

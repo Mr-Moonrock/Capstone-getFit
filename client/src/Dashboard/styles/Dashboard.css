@@ -1,0 +1,55 @@
+.dashboard-calendar-container {
+  height: 1740px;
+  width: 1150px;
+  margin-left: 475px;
+  border-radius: 10px;
+  margin-bottom: 50px;
+  margin-top: 20px;
+  background-color: #333;
+  padding: 25px;
+  color: white;
+}
+
+.dashboard-progress-table {
+  flex: 1; 
+  margin-right: 0px;
+  margin-left: 820px;
+  margin-top: -364px;
+  background-color: #333;
+  color: white;
+  height: 365px;
+  border-radius: 10px;
+  width: 800px;
+  padding: 25px;
+}
+
+.quotes-container {
+  flex: 1; 
+  margin-right: 10px;
+  width: 800px;
+  background-color: #333; 
+  padding: 25px;
+  color: white;
+  border-radius: 10px;
+}
+
+.quotes-heading {
+  margin-top: 10px;
+  margin-bottom: 30px;
+}
+
+.bmi-heading {
+  margin-top: 10px;
+  margin-bottom: 30px;
+}
+
+.dashboard-upcoming-classes {
+  margin-top: 650px;
+  background-color: #333;
+  color: white;
+  width: 800px;
+  padding: 25px;
+  border-radius: 10px;
+  margin-left: 20px;
+}
+

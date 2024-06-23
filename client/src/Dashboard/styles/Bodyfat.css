@@ -1,0 +1,22 @@
+.bodyfat-container {
+  border: 1px solid black;
+  width: 335px;
+  border-radius: 10px;
+  margin-left: 820px;
+  margin-top: -710px;
+  background-color: #333;
+  height: 170px;
+}
+
+.bodyfat-heading {
+  margin-top: 20px;
+  font-size: 20px;
+  color: white;
+}
+
+.navyBfp-display {
+  margin-top: 10px;
+  font-size: 30px;
+  color: rgba(242, 239, 239, 0.5);
+  padding: 10px;
+}

@@ -1,0 +1,67 @@
+.abs-card-slider-btn-prev,
+.abs-card-slider-btn-next {
+  margin-top: 40px;
+  height: 50px;
+  width: 25%;
+  background-color: #333;
+  border: none;
+  font-size: 24px;
+  color: white;
+  border-radius: 10px;
+}
+
+.abs-card-slider-btn-prev:hover,
+.abs-card-slider-btn-next:hover {
+  background-color: rgba(242, 239, 239, 0.5);
+  color: rgba(10, 10, 10, .5);
+  font-size: 26px;
+}
+
+.abs-prev,
+.abs-next {
+  margin-top: 40px;
+  margin-left: 10px;
+  height: 50px;
+  width: 45%;
+  background-color:  #333;
+  border: none;
+  border-radius: 5px;
+  font-size: 24px;
+  color: white;
+}
+
+.abs-prev:hover,
+.abs-next:hover {
+  background-color: rgba(242, 239, 239, 0.5);
+  color: rgba(10, 10, 10, .5);
+  font-size: 26px;
+}
+
+.abs-prev:disabled {
+  margin-top: 40px;
+  margin-left: 10px;
+  height: 50px;
+  width: 45%;
+  background-color:  #333;
+  border: none;
+  border-radius: 5px;
+  font-size: 24px;
+  color: white;
+}
+
+#abs-nav-tabs {
+  background-color: #333;
+  color: white;
+}
+
+#abs-container {
+  background-color: rgba(242, 239, 239, 0.5);
+  margin-bottom: 100px;
+  margin-top: 100px;
+}
+
+.abs-nav-link {
+  background-color: #333;
+  border: 1px solid white;
+}
+

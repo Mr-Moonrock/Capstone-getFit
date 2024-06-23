@@ -1,0 +1,114 @@
+#register-card-body {
+  border-radius: 10px;
+  border: none;
+  padding: 20px;
+  margin-top: 150px;
+}
+
+#register-card {
+  background-color: rgba(211, 208, 208, 0.608);
+}
+
+#register-header {
+  text-align: center;
+  margin-top: 20px;
+}
+
+#register-input-form-control {
+  width: calc(100% - 4px);
+  margin-top: -10px;
+  margin-bottom: 0px; 
+  border: none;
+  height: 50px;
+}
+
+#register-form-group {
+  margin-top: 20px;
+}
+
+#register-btn {
+  margin-top: 40px;
+  height: 50px;
+  width: 100%;
+  background-color: rgba(10, 10, 10, .5);
+  border: none;
+  font-size: 24px;
+}
+
+#register-btn:hover {
+  background-color: rgba(242, 239, 239, 0.5);
+  color: rgba(10, 10, 10, .5);
+  font-size: 26px;
+}
+
+.register-background-element {
+  background-image: url('D:\Capstone-Project\GetFit\client\src\images\loginImage.jpg');
+  background-size: cover;
+  background-position: center;
+  height: 1000px;
+  width: 1500px;
+  border-radius: 50px;
+  border: 10px solid black;
+  margin-top: 5%;
+  margin-left: 5%;
+}
+
+.RegisterForm {
+  display:block;
+  justify-content: left;
+  width: 600px;
+  margin-left: 50px;
+}
+
+/* #register-container {
+  display: flex;
+  justify-content: left;
+}
+
+#register-form-container{
+  width: 50%;
+} */
+
+.register-logo-and-title {
+  display: flex;
+  align-items: center; 
+  justify-content: center;
+  margin-top: 20px;
+  margin-bottom: 20px;
+}
+
+.register-logoImage {
+  width: 75px; 
+  border-radius: 50%;
+} 
+
+.register-divider {
+  width: 2px;
+  height: 75px;
+  background-color: black;
+  margin: 0 10px;
+}
+
+.login-link {
+  align-items: right;
+  color: rgba(10, 10, 10, .5);
+}
+
+.login-link:hover {
+  color: rgba(242, 239, 239, 0.5);
+}
+
+.Link{
+  color: black
+}
+
+.register-logo-and-title-container {
+  display: flex;
+  justify-content: center; 
+  align-items: center; 
+  background-color: rgba(211, 208, 208, 0.608); 
+}
+
+.register-paragraph {
+  margin-left: 10px;
+}

@@ -1,0 +1,162 @@
+/* #bmi-form {
+  display: flex;
+  margin-top: 50px;
+  flex-wrap: wrap;
+} */
+
+.bmi-form-container {
+  flex: 1;
+  max-width: 50%; 
+  margin-right: 20px;
+  justify-content: left;
+  margin-top: -25px;
+}
+
+#bmi-card-body {
+  border-radius: 10px;
+  border: none;
+  padding: 20px;
+  margin-top: 50px;
+  margin-left: 10px;
+}
+
+#bmi-card {
+  background-color: rgba(211, 208, 208, 0.608);
+}
+
+#bmi-header {
+  text-align: center;
+  margin-top: 20px;
+}
+
+#bmi-input-form-control-select-calculation,
+#bmi-input-form-control-gender,
+#bmi-input-form-control-age,
+#bmi-input-form-control-weight,
+#bmi-input-form-control-height,
+#bmi-input-form-control-waist,
+#bmi-input-form-control-neck,
+#bmi-input-form-control-hip,
+#bmi-input-form-control-fitnessLevel,
+#bmi-input-form-control-bodyfat {
+  width: calc(100% - 4px);
+  margin-top: 10px;
+  margin-bottom: 0px; 
+  border: none;
+  height: 50px;
+  border-radius: 5px;
+}
+
+#bmi-form-group{
+  margin-top: 30px;
+  margin-bottom: 10px;
+  border-radius: 5px; 
+}
+
+#bmi-btn {
+  margin-top: 40px;
+  margin-bottom: 20px;
+  height: 50px;
+  width: 100%;
+  background-color: rgba(10, 10, 10, .5);
+  border: none;
+  font-size: 24px;
+}
+
+#bmi-btn:hover {
+  background-color: rgba(242, 239, 239, 0.5);
+  color: rgba(10, 10, 10, .5);
+  font-size: 26px;
+}
+
+.bmi-logo-and-title {
+  display: flex;
+  align-items: center; 
+  justify-content: center;
+  margin-top: 20px;
+  margin-bottom: 20px;
+}
+
+.bmi-logoImage {
+  width: 75px; 
+  border-radius: 50%;
+} 
+
+.bmi-divider {
+  width: 2px;
+  height: 75px;
+  background-color: black;
+  margin: 0 10px;
+}
+
+.bmi-logo-and-title-container {
+  display: flex;
+  justify-content: center; 
+  align-items: center; 
+  background-color: rgba(211, 208, 208, 0.608); 
+}
+
+#bmi-toggle {
+  height: 30px;
+  width: 60px;
+  background-color: gray;
+}
+
+.bmi-toggle-container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  border: none;
+}
+
+.bmi-form-check-label {
+  display: inline-block;
+  margin-top: 5px;
+  margin-left: 5px;
+  text-align: center;
+}
+
+.bmi-display-container {
+  width: 100%;
+  max-width: 500px;
+  height: 500px;
+  background-color: black;
+  border-radius: 10px;
+  margin-top: -800px;
+  margin-left: auto;
+  margin-right: auto;
+  margin-bottom: 350px;
+}
+
+.bmi-display-paragraph {
+  font-size: 24px;
+  color: white;
+  margin-left: 10px;
+}
+
+.initial-results-header {
+  color: white;
+}
+
+.goal-results-header {
+  color: white;
+}
+
+.bmi-results-container {
+  flex: 1;
+  max-width: 100%;
+  margin-left: 750px;
+}
+
+.bmi-background-element {
+  background-image: url('D:\Capstone-Project\GetFit\client\src\images\loginImage.jpg');
+  background-size: cover;
+  background-position: center;
+  height: 1400px;
+  width: 1800px;
+  border-radius: 50px;
+  border: 10px solid black;
+  margin-top: 5%;
+  margin-left: 5%;
+}
+

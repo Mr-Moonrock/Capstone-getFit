@@ -1,0 +1,26 @@
+#quote-card {
+  width: 750px;
+  height: 250px;
+  padding: 10px;
+  background-color: rgba(242, 239, 239, 0.5);
+}
+
+#quote-card-header {
+  background-color: rgba(242, 239, 239, 0.5);
+  font-size: 20px;
+}
+
+#quote-card-body {
+  background-color: #333;
+  border-radius: 5px;
+}
+
+.quote-quote {
+  font-size: 18px;
+  color: white;
+}
+
+.quote-footer {
+ color: white;
+ font-size: 18px;
+}

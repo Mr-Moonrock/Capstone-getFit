@@ -1,0 +1,31 @@
+.cardioImg {
+  width: 1300px;
+  margin-top: 5px;
+  margin-bottom: 5px;
+  border: 2px solid rgba(0, 0, 0, 0.5);
+  border-radius: 5px;
+}
+
+.cardioImg-2 {
+  width: 1300px;
+  margin-top: 20px;
+  margin-bottom: 20px;
+  border: 2px solid rgba(0, 0, 0, 0.5);
+  border-radius: 5px;
+}
+
+.hittVsliss {
+  height: 400px;
+  width: 600px;
+  float: right;
+  border: 2px solid rgba(0, 0, 0, 0.5);
+  border-radius: 5px;
+  margin-left: 20px;
+}
+
+.heartRateChart {
+  height: 700px;
+  width: 1300px;
+  border: 2px solid rgba(0, 0, 0, 0.5);
+  border-radius: 5px;
+}
