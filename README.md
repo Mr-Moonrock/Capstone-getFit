@@ -1,70 +1,106 @@
-# Getting Started with Create React App
+# Introduction
+Our platform is built on the belief that achieving fitness goals should be accessible and straightforward. GetFit provides a comprehensive suite of tools and resources tailored to meet your individual fitness needs. From calculating essential metrics like Basal Metabolic Rate (BMR) and Target Heart Rate (THR), to planning and scheduling personalized workout routines, GetFit equips you with everything you need to optimize your fitness journey.
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+Explore a wide range of exercises through our intuitive Exercise Pages, complete with instructional gifs and detailed written guides. Plan your workouts in advance using our interactive Calendar feature, which forecasts your weekly exercise regimen and seamlessly integrates with your personalized dashboard.
 
-## Available Scripts
+GetFit isn't just about numbers—it's about empowering you to make informed decisions about your health. Whether you're looking to shed pounds, build muscle, or simply maintain a healthy lifestyle, GetFit provides the tools and knowledge to help you achieve your goals.
 
-In the project directory, you can run:
 
-### `npm start`
+## Features
+### - Exercise Pages 
+- Users can easily find workouts they are interested in, accompanied by instructional gifs and written instructions for clarity.
 
-Runs the app in the development mode.\
-Open [http://localhost:3000](http://localhost:3000) to view it in your browser.
 
-The page will reload when you make changes.\
-You may also see any lint errors in the console.
+### - Target Heart Rate Form
+- Helps users determine their Target Heart Rate and displays it on their dashboard. 
 
-### `npm test`
+### - Basal Metabolic Rate Form
+- Calculates the user's Basal Metabolic Rate to estimate daily calorie expenditure.
 
-Launches the test runner in the interactive watch mode.\
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
+### - Adjustable Body Weight Form
+- Enables users to calculate their Ideal Body Weight and Adjustable Body Weight. 
 
-### `npm run build`
+### - Body Fat Form
+- Allows users to estimate their body fat percentage.
 
-Builds the app for production to the `build` folder.\
-It correctly bundles React in production mode and optimizes the build for the best performance.
+### Fat-Free Mass Index
+- Calculates the user's muscle-to-fat ratio.
 
-The build is minified and the filenames include the hashes.\
-Your app is ready to be deployed!
+### Dashboard Features
+Extracts user data for Target Heart Rate (THR), Basal Metabolic Rate (BMR), and Body Fat, displaying them on the user's dashboard.
 
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
+### Calendar 
+- Users can plan exercise routines based on specific body parts, create workout schedules for days or weeks in advance, and view a 7-day exercise forecast on their dashboard. 
 
-### `npm run eject`
+## Getting Started
 
-**Note: this is a one-way operation. Once you `eject`, you can't go back!**
+### - Installation
+- To install dependencies, run: 'npm install'
 
-If you aren't satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
+### - Starting the application
 
-Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you're on your own.
+- Start frontend with: 'npm run client'
+- Start backend with: 'nodemon server.js'
 
-You don't have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn't feel obligated to use this feature. However we understand that this tool wouldn't be useful if you couldn't customize it when you are ready for it.
 
-## Learn More
+### - Testing the application
+Frontend tests are located in the 'client/components/__tests__' folder.
+- To run all frontend tests with Jest: 'jest'
+- To test a single file: 'jest fileName.test.js'
 
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
+Backend test are located in the 'server/routes/__tests__' folder.
+- To run all backend tests: 'npm test'
+- To test a single file: 'npm test fileName.test.js'
+  
+### - User Flow 
 
-To learn React, check out the [React documentation](https://reactjs.org/).
+#### -Homepage 
+The first page users encounter provides non-members with information on simple lifestyle improvements and the importance of BMI.
 
-### Code Splitting
+#### -Login/Register: 
+Users can register to become members and access additional features.
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/code-splitting](https://facebook.github.io/create-react-app/docs/code-splitting)
+#### -Dashboard: 
+Members can view all calculations and results on their dashboard, including a 7-day workout forecast. Future updates will include upcoming classes.
 
-### Analyzing the Bundle Size
+### Additional Options from Dashboard
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size](https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size)
+#### BMI route- 
+Allows users to fill out multiple forms for initial setup or to update their weight and dimensions.
 
-### Making a Progressive Web App
+#### Exercise pages- 
+Discover new workouts.
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app](https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app)
+#### Life Changes/Cardio Info Pages: 
+Learn about different types of cardio and their benefits, as well as lifestyle improvements.
 
-### Advanced Configuration
+#### Calendar page: 
+Customize workouts and plan weekly/monthly schedules.
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/advanced-configuration](https://facebook.github.io/create-react-app/docs/advanced-configuration)
+### API Documentation
+#### - Health Calculator API
+All calculations on the website are performed using the Health Calculator API, which offers various options for fitness tracking applications. (https://health-calculator-api.p.rapidapi.com) 
 
-### Deployment
+#### -  ExerciseDB API
+Exercise information, including gifs, is sourced from the ExerciseDB API, providing developers with easy integration for fitness and exercise applications. (https://exercisedb.p.rapidapi.com). 
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/deployment](https://facebook.github.io/create-react-app/docs/deployment)
 
-### `npm run build` fails to minify
+## Future of the application
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify](https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify)
+### Upcoming features:
+#### Equipment Page:
+A page where users can purchase top-brand workout equipment and supplements at competitive prices. 
+
+#### Online Classes: 
+Integration with the calendar to schedule online classes such as yoga, bodyweight exercises, and calisthenics. 
+
+#### Buttons to simplify features/navigation:
+Addition of save buttons on exercise cards to allow users to save exercises directly to their calendar.
+
+## Concerns and Issues
+Encountered issues include the dropping of exercises on the calendar requiring multiple attempts to register, and challenges with testing Exercise/Cardio Carousels. Unfortunately, the FullCalendar docs doesn't do a great job explaining this particular scenario, nor is there much information on YouTube or online. 
+## 
+Other issues I had was with testing the Exercise/Cardio Carousels. I was having trouble detecting when the certain imgs were 'active' was 'true or false'. I tried mocking timers, and using fireEvents on the buttons, but neither approach was working properly.
+
+For the backend testing, I ran into problems with registering a 404 error with the missing userId, and also ensuring that the 2nd pool.query for the 'INSERT' was being called on the forms. The test would come back as a (200), however the format of the INSERT query continually failed the test. 
+
