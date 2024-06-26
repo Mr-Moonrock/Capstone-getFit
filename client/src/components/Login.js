@@ -35,11 +35,11 @@ function Login () {
     setLoading(true); 
     setError('');
     try {
-      const res = await axios.post('http://localhost:5000/auth/login', loginData);
+      const res = await axios.post(`${process.env.REACT_APP_BACKEND_URL}/auth/login`, loginData);
       
       const { jwtToken } = res.data;
       localStorage.setItem('token', jwtToken)
-      const userRes = await axios.post('http://localhost:5000/auth/user', {}, {
+      const userRes = await axios.post(`${process.env.REACT_APP_BACKEND_URL}/auth/user`, {}, {
         headers: {
           Authorization: `Bearer ${res.data.jwtToken}`
         }

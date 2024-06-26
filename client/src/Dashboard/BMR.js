@@ -11,7 +11,7 @@ function BMR () {
   const getThrValuesFromDb = async () => {
     try {
       const userId = currentUser.id;
-      const baseURL = 'http://localhost:5000/bmi'
+      const baseURL = `${process.env.REACT_APP_BACKEND_URL}/bmi`
       const res = await fetch(`${baseURL}/bmr/${userId}`)
       if (!res.ok) {
         throw new Error('Failed to fetch BMR values');

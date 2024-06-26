@@ -34,7 +34,7 @@ function CalendarComp() {
         const response = await axios.get(`https://exercisedb.p.rapidapi.com/exercises/target/${selectedTarget}`, {
           params: { limit: '200' },
           headers: {
-            'X-RapidAPI-Key': '31c3abfaa6msh09cecb581336696p1907c7jsn6d70f9e3b0b8',
+            'X-RapidAPI-Key': process.env.REACT_APP_RAPIDAPI_KEY,
             'X-RapidAPI-Host': 'exercisedb.p.rapidapi.com'
           }
         })
@@ -93,7 +93,7 @@ function CalendarComp() {
       // SAVE BUTTON 
   const saveWorkoutsToDb = async (formattedExercises) => {
     try {
-      const baseUrl = 'http://localhost:5000/calendar/exercises';
+      const baseUrl = `${process.env.REACT_APP_BACKEND_URL}/calendar/exercises`;
       const token = localStorage.getItem('token');
       const res = await axios.post(baseUrl, formattedExercises, {
         headers: {

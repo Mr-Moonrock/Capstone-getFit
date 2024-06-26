@@ -22,7 +22,7 @@ function Register() {
   async function handleSubmit(evt) {
     evt.preventDefault();
     try{
-      const res= await axios.post('http://localhost:5000/auth/register', userRegisterData);
+      const res= await axios.post(`${process.env.REACT_APP_BACKEND_URL}/auth/register`, userRegisterData);
       localStorage.setItem('token', res.data.jwtToken);
       navigate('/login')
     } catch (error) {

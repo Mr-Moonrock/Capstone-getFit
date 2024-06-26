@@ -11,7 +11,7 @@ function Bodyfat () {
   const getBodyfatFromDb = async () => {
     try {
       const userId = currentUser.id;
-      const baseURL = 'http://localhost:5000/bmi'
+      const baseURL = `${process.env.REACT_APP_BACKEND_URL}/bmi`
       const res = await fetch(`${baseURL}/bodyfat/${userId}`)
       const data = await res.json();
       return data

@@ -43,7 +43,7 @@ function CalendarDashboard() {
       try {
         setIsLoading(true);
         const userId = currentUser.id;
-        const baseUrl = `http://localhost:5000/calendar/sevenDay/${userId}`;
+        const baseUrl = `${process.env.REACT_APP_BACKEND_URL}/calendar/sevenDay/${userId}`;
         const response = await axios.get(baseUrl);
 
         if (Array.isArray(response.data)) {
