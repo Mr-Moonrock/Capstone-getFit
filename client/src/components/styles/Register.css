@@ -42,7 +42,7 @@
 }
 
 .register-background-element {
-  background-image: url('D:\Capstone-Project\GetFit\client\src\images\loginImage.jpg');
+  background-image: url('.../images/loginImage.jpg');
   background-size: cover;
   background-position: center;
   height: 1000px;
