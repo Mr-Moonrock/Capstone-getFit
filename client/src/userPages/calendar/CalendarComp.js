@@ -42,7 +42,6 @@ function CalendarComp() {
             duration: '10 minutes',
             color: 'rgba(211, 208, 208, 0.608)',
           }))
-          
           makeExercisesDraggable(formattedExercises);
           setAllExercises(formattedExercises)
           updateTasksForTarget(selectedTarget, formattedExercises.slice(0, 50));
@@ -185,9 +184,7 @@ function CalendarComp() {
     }))
   }
 
-  const makeExercisesDraggable = (exercises) => {
-    console.log('MakeExercisesDraggable - exercises', exercises); 
-    
+  const makeExercisesDraggable = (exercises) => { 
     setTimeout(() => {
       exercises.forEach(exercise => {
         const element = document.getElementById(`exercise-${exercise.id}`);
@@ -213,8 +210,7 @@ function CalendarComp() {
     <div className='' id='fullCalendar-full-container'>
       <div className='row'>
         <div className='col-md-5' id='dropdown-container'>
-          <div  className="col-md-12" 
-                id='calendarComp-dropdown-box' >
+          <div  className="col-md-12" id='calendarComp-dropdown-box' >
             <select className='form-select mb-3' 
                     data-testid = 'select-muscle'
                     onChange={handleSelectChange} 
@@ -241,21 +237,13 @@ function CalendarComp() {
             </select>    
             <div className="row mt-5" id='drag-n-drop-exercise-container-wrap'>
               {savedSuccessfully && (
-                <div className="alert alert-success text-center" role="alert"> 
-                  Saved Successfully! 
-                </div>
+                <div className="alert alert-success text-center" role="alert"> Saved Successfully! </div>
               )}
-              <h5 className='text-center' 
-                  id='fullCalendar-DragNDrop-Header'> Drag-n-Drop an Exercise:
-              </h5>
+              <h5 className='text-center' id='fullCalendar-DragNDrop-Header'> Drag-n-Drop an Exercise: </h5>
               <ul className="list-group" id='calendar-draggable-list'>
                   {tasksByTarget[selectedTarget] && 
                   tasksByTarget[selectedTarget].map((exercise, index) => (
-                <li key={index}
-                    id={`exercise-${exercise.id}`}
-                    className="list-group-item"
-                > {exercise.name}
-                </li>
+                <li key={index} id={`exercise-${exercise.id}`} className="list-group-item"> {exercise.name} </li>
                   ))}
               </ul>
             </div>
@@ -263,18 +251,11 @@ function CalendarComp() {
           <div className='calendar-next-prev-btn'>
             <div className='row'>
               <div className='col'> 
-              
-                <button className='btn btn-primary mx-auto d-block' 
-                        id='calendar-prev-btn'
-                        onClick={handlePrevPage}
-                > Prev 
+                <button className='btn btn-primary mx-auto d-block' id='calendar-prev-btn' onClick={handlePrevPage}> Prev 
                 </button>
               </div>
               <div className='col'> 
-                <button className='btn btn-primary mx-auto d-block' 
-                        id='calendar-next-btn'
-                        onClick= {handleNextPage}
-                > Next 
+                <button className='btn btn-primary mx-auto d-block' id='calendar-next-btn' onClick= {handleNextPage}> Next 
                 </button>
               </div>
             </div>
@@ -303,7 +284,7 @@ function CalendarComp() {
                   eventDragStop= {handleEventDragStop}            
                   selectable = {true} 
                   select = {handleSelect} 
-                  events = {events.concat(tasks)} 
+                  events = {events.concat(droppedTasks)} 
                   height = {1200}
                   eventBackgroundColor= 'rgba(211, 208, 208, 0.608)'
                   eventBorderColor = 'rgba(211, 208, 208, 0.608)'
