@@ -106,7 +106,8 @@ function Neck() {
         <ul className="nav nav-tabs card-header-tabs" id='neck-nav-tabs'>
           {targets.map(target => (
           <li className="nav-item" id='neck-nav-item' key={target}>
-            <a  className={`nav-link ${activeTab === target ? 'active' : 'non-active'}`}  
+            <a  className={`nav-link ${activeTab === target ? 'active' : 'non-active'}`}
+                href="javascript:undefined"  
                 onClick={() => handleTabClick(target)}
                 style={activeTab === target ? activeStyle : nonActiveStyle}
                 data-testid={`tab-${target}`}

@@ -96,7 +96,8 @@ function Shoulders() {
           <ul className="nav nav-tabs card-header-tabs" id='shoulders-nav-tabs'>
             {targets.map(target => (
             <li className="nav-item" id='shoulders-nav-item' key={target}>
-              <a  className={`nav-link ${activeTab === target ? 'active' : 'non-active'}`}  
+              <a  className={`nav-link ${activeTab === target ? 'active' : 'non-active'}`} 
+                  href="javascript:undefined" 
                   onClick={() => handleTabClick(target)}
                   data-testid={`tab-${target}`}
               > 
