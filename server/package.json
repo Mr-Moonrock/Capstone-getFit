@@ -7,8 +7,7 @@
     "dev": "nodemon server.js",
     "start": "node server.js",
     "client": "npm run client",
-    "build": "npm install && npm run build:client",
-    "build:client": "echo 'Client build step, if applicable'",
+    "build": "npm install && npm run",
     "test": "jest"
   },
   "keywords": [],
