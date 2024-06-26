@@ -9,23 +9,11 @@ const pool = new Pool({
   database: process.env.DBDATABASE,
 });
 
-console.log('Pool', pool);
-
-// pool.connect((err, client, release) => {
-//   if (err) {
-//     console.error('Error acquiring client', err.stack);
-//   } else {
-//     release();
-//   }
-// });
-
-// pool.query('SELECT NOW()', (err, res) => {
-//   if (err) {
-//     console.error('Database connection error:', err.stack);
-//   } else {
-//     console.log('Database connected:', res.rows);
-//   }
-// });
+console.log('User', process.env.DBUSER);
+console.log('Password', process.env.DBPASSWORD);
+console.log('Host', process.env.DBHOST);
+console.log('Port', process.env.DBPORT);
+console.log('Database', process.env.DBDATABASE);
 
 pool.connect((err, client, release) => {
   if (err) {
