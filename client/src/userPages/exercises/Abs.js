@@ -105,7 +105,7 @@ return (
           {targets.map(target => (
             <li className="nav-item" id='abs-nav-item' key={target}>
               <a className={`nav-link ${activeTab === target ? 'active' : 'non-active'}`} 
-                 href="javascript:undefined"
+                 href="#absCard"
                  onClick={() => handleTabClick(target)}
                  style={activeTab === target ? activeStyle : nonActiveStyle}
                  data-testid={`tab-${target}`}

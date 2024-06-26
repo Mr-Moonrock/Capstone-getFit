@@ -125,7 +125,7 @@ function CalendarDashboard() {
               <li className="nav-item" id='workout-nav-item' key={date}>
                 <a className={`nav-link ${activeTab === date ? 'active' : 'non-active'}`}
                    onClick={(event) => { event.preventDefault(); handleTabClick(date) }}
-                   href="javascript:undefined"
+                   href="#calendarTabs"
                 >
                   <span className="date-text">{date}</span>
                   <br></br>

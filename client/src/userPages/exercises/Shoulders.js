@@ -97,7 +97,7 @@ function Shoulders() {
             {targets.map(target => (
             <li className="nav-item" id='shoulders-nav-item' key={target}>
               <a  className={`nav-link ${activeTab === target ? 'active' : 'non-active'}`} 
-                  href="javascript:undefined" 
+                  href="#shouldersCard"
                   onClick={() => handleTabClick(target)}
                   data-testid={`tab-${target}`}
               > 
