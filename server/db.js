@@ -9,6 +9,8 @@ const pool = new Pool({
   database: process.env.DBDATABASE,
 });
 
+console.log('Pool', pool);
+
 // pool.connect((err, client, release) => {
 //   if (err) {
 //     console.error('Error acquiring client', err.stack);
