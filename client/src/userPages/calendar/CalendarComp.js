@@ -28,7 +28,6 @@ function CalendarComp() {
       [selectedTarget]: tasks,
     }))
   }, []);
-
   
     const makeExercisesDraggable = useCallback((exercises) => { 
       setTimeout(() => {
@@ -169,7 +168,7 @@ function CalendarComp() {
       const endIndex = Math.min(startIndex + 50, allExercises.length);
       updateTasksForTarget(selectedTarget, allExercises.slice(startIndex, endIndex));
     }
-  }, [currentPage, allExercises, selectedTarget, , updateTasksForTarget]); 
+  }, [currentPage, allExercises, selectedTarget, updateTasksForTarget]); 
 
   const handleSelectChange = (e) => {
     setSelectedTarget(e.target.value);

@@ -9,41 +9,41 @@ function AjBW () {
   const [ibwRobinson, setIbbwRobinson] = useState(0);
   const navigate = useNavigate();
 
-  const getAjbwFromDb = async () => {
-    try {
-      const userId = currentUser.id;
-      const baseURL = `${process.env.REACT_APP_BACKEND_URL}/bmi`
-      const res = await fetch(`${baseURL}/ajbw/${userId}`)
-      const data = await res.json();
-      return data
-    } catch (err) {
-      console.error('Error getting AjBW values')
-      return [];
+  useEffect(() => {
+    const getAjbwFromDb = async () => {
+      try {
+        const userId = currentUser.id;
+        const baseURL = `${process.env.REACT_APP_BACKEND_URL}/bmi`
+        const res = await fetch(`${baseURL}/ajbw/${userId}`)
+        const data = await res.json();
+        return data
+      } catch (err) {
+        console.error('Error getting AjBW values')
+        return [];
+      }
     }
-  }
 
-useEffect(() => {
-  const fetchData = async () => {
-    try {
-      if (!currentUser) {
-        navigate('/login')
-        return;
+    const fetchData = async () => {
+      try {
+        if (!currentUser) {
+          navigate('/login')
+          return;
+        }
+        const ajbwValues = await getAjbwFromDb();
+        if (ajbwValues.userAjbwData) {
+          const userNavyBfpValue = ajbwValues.userAjbwData.ajbw;
+          const userIbwRobinsonValue = ajbwValues.userAjbwData.ibw_robinson
+          setAjbw(userNavyBfpValue)
+          setIbbwRobinson(userIbwRobinsonValue)
+        } else {
+          console.error('AjBW data not found')
+        }
+      } catch (err) {
+        console.error('Error getting AjBW data', err)
       }
-      const ajbwValues = await getAjbwFromDb();
-      if (ajbwValues.userAjbwData) {
-        const userNavyBfpValue = ajbwValues.userAjbwData.ajbw;
-        const userIbwRobinsonValue = ajbwValues.userAjbwData.ibw_robinson
-        setAjbw(userNavyBfpValue)
-        setIbbwRobinson(userIbwRobinsonValue)
-      } else {
-        console.error('AjBW data not found')
-      }
-    } catch (err) {
-      console.error('Error getting AjBW data', err)
     }
-  };
-  fetchData();
-}, [currentUser, getAjbwFromDb, navigate]);
+    fetchData();
+  }, [currentUser, navigate]);
 
   return (
     <div>

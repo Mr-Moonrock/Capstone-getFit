@@ -8,20 +8,20 @@ function Bodyfat () {
   const { currentUser } = useContext(UserContext) || {};
   const navigate = useNavigate();
 
-  const getBodyfatFromDb = async () => {
-    try {
-      const userId = currentUser.id;
-      const baseURL = `${process.env.REACT_APP_BACKEND_URL}/bmi`
-      const res = await fetch(`${baseURL}/bodyfat/${userId}`)
-      const data = await res.json();
-      return data
-    } catch (err) {
-      console.error('Error getting bodyfat values')
-      return [];
-    }
-  }
-
   useEffect(() => {
+    const getBodyfatFromDb = async () => {
+      try {
+        const userId = currentUser.id;
+        const baseURL = `${process.env.REACT_APP_BACKEND_URL}/bmi`
+        const res = await fetch(`${baseURL}/bodyfat/${userId}`)
+        const data = await res.json();
+        return data
+      } catch (err) {
+        console.error('Error getting bodyfat values')
+        return null;
+      }
+    }
+  
     const fetchData = async () => {
       try {
         if (!currentUser) {

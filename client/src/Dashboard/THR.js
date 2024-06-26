@@ -19,7 +19,7 @@ function THR () {
         return data
       } catch (err) {
         console.error('Error getting thr values')
-        return [];
+        return null;
       }
     }
 

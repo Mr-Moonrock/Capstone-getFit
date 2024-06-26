@@ -14,7 +14,7 @@ function UserInfo () {
   const navigate = useNavigate();
   const { currentUser } = useContext(UserContext) || {};
 
-  const fetchData = useCallback(async () => {
+  useEffect(() => {
     const getUserInfoFromDb = async () => {
       try {
         const userId = currentUser.id;
@@ -28,6 +28,7 @@ function UserInfo () {
       }
     }
 
+  const fetchData = async () => {
     try {
       if (!currentUser) {
         navigate('/login');
@@ -57,11 +58,11 @@ function UserInfo () {
     } catch (err) {
       console.error('Error getting User Info', err);
     }
-  }, [currentUser, navigate])
-  useEffect(() => {
-  
+  } 
   fetchData();
-}, [currentUser, navigate]);
+}, [currentUser, navigate])
+  
+  
 
 // useEffect(() => {
 //   const fetchData = async () => {

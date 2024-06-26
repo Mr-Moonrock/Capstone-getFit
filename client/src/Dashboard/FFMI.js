@@ -20,7 +20,7 @@ function FFMI () {
         return data
       } catch (err) {
         console.error('Error getting FFMI values')
-        return [];
+        return null;
       }
     }
 
