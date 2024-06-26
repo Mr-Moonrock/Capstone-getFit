@@ -1,0 +1,14 @@
+[build]
+  base = "client"
+  publish = "client/build"
+  command = "npm run build"
+  functions = "client/netlify/functions"
+
+[[redirects]]
+  from = "/*"
+  to = "/index.html"
+  status = 200
+
+[build.environment]
+REACT_APP_RAPIDAPI_KEY=d59f8760b8mshaadd24d66288352p1824a4jsn1cad652a060a
+REACT_APP_BACKEND_URL=https://capstone-getfit-1.onrender.com
