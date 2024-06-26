@@ -1,4 +1,4 @@
-import React, { useState, useEffect, useContext } from 'react';
+import React, { useState, useEffect, useContext, useCallback } from 'react';
 import axios from 'axios';
 import FullCalendar from '@fullcalendar/react'
 import dayGridPlugin from '@fullcalendar/daygrid' 
@@ -10,7 +10,6 @@ import bootstrap5Plugin from '@fullcalendar/bootstrap5'
 import './styles/CalendarComp.css';
 import { UserContext } from '../../UserContext';
 import 'react-toastify/dist/ReactToastify.css';
-import { Calendar } from '@fullcalendar/core';
 
 function CalendarComp() {
   const [events, setEvents] = useState([]);
@@ -18,11 +17,40 @@ function CalendarComp() {
   const [droppedTasks, setDroppedTasks] = useState([]);
   const [tasksByTarget, setTasksByTarget] = useState({});
   const [currentPage, setCurrentPage] = useState(1); 
-  const [totalPages, setTotalPages] = useState(1);
-  const [totalExercises, setTotalExercises] = useState(0);
   const [allExercises, setAllExercises] = useState([]);
   const { currentUser } = useContext(UserContext);
   const [savedSuccessfully, setSavedSuccessfully] = useState(false);
+
+
+  const updateTasksForTarget = useCallback((selectedTarget, tasks) => {
+    setTasksByTarget(prevState => ({
+      ...prevState,
+      [selectedTarget]: tasks,
+    }))
+  }, []);
+
+  
+    const makeExercisesDraggable = useCallback((exercises) => { 
+      setTimeout(() => {
+        exercises.forEach(exercise => {
+          const element = document.getElementById(`exercise-${exercise.id}`);
+          if (element) {
+          const deleteButton = document.createElement('button');
+          deleteButton.innerHTML = '&times;';
+          deleteButton.className='draggable-exercise-delete-btn';
+          deleteButton.onclick = () => handleDeleteExercise(exercise.id);
+          element.appendChild(deleteButton);
+            new Draggable(element, {
+              eventData: {
+                title: exercise.name,
+                duration: '01:00',
+                extendedProps: { id: exercise.id }
+              }
+            })
+          }
+        });
+      }, 1000); 
+    }, [])
 
   // CALL TO GET THE TARGET MUSCLES FROM API AND DROP DOWN BOX 
   useEffect(() => {
@@ -45,8 +73,8 @@ function CalendarComp() {
           makeExercisesDraggable(formattedExercises);
           setAllExercises(formattedExercises)
           updateTasksForTarget(selectedTarget, formattedExercises.slice(0, 50));
-          setTotalExercises(response.data.length);
-          setTotalPages(Math.ceil(response.data.length / 50));
+          // setTotalExercises(response.data.length);
+          // setTotalPages(Math.ceil(response.data.length / 50));
         } else {
           console.error('Invalid Data format:', response.data);
         }
@@ -57,7 +85,7 @@ function CalendarComp() {
     if (selectedTarget) {
       fetchExercises(selectedTarget);
     }
-  }, [selectedTarget, makeExercisesDraggable]);  
+  }, [selectedTarget, makeExercisesDraggable, updateTasksForTarget]);  
 
     // HANDLE EVENT DROP
   const handleEventDrop = (eventDropInfo) => {
@@ -141,7 +169,7 @@ function CalendarComp() {
       const endIndex = Math.min(startIndex + 50, allExercises.length);
       updateTasksForTarget(selectedTarget, allExercises.slice(startIndex, endIndex));
     }
-  }, [currentPage, allExercises, selectedTarget]); 
+  }, [currentPage, allExercises, selectedTarget, , updateTasksForTarget]); 
 
   const handleSelectChange = (e) => {
     setSelectedTarget(e.target.value);
@@ -175,35 +203,6 @@ function CalendarComp() {
       const eventId = eventDragInfo.event.id;
       setEvents((prevEvents) => prevEvents.filter((event) => event.id !== eventId));
     }
-  };
-
-  const updateTasksForTarget = (selectedTarget, tasks) => {
-    setTasksByTarget(prevState => ({
-      ...prevState,
-      [selectedTarget]: tasks,
-    }))
-  }
-
-  const makeExercisesDraggable = (exercises) => { 
-    setTimeout(() => {
-      exercises.forEach(exercise => {
-        const element = document.getElementById(`exercise-${exercise.id}`);
-        if (element) {
-        const deleteButton = document.createElement('button');
-        deleteButton.innerHTML = '&times;';
-        deleteButton.className='draggable-exercise-delete-btn';
-        deleteButton.onclick = () => handleDeleteExercise(exercise.id);
-        element.appendChild(deleteButton);
-          new Draggable(element, {
-            eventData: {
-              title: exercise.name,
-              duration: '01:00',
-              extendedProps: { id: exercise.id }
-            }
-          })
-        }
-      });
-    }, 1000); 
   };
 
   return (
