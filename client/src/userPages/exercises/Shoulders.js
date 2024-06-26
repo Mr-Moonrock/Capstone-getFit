@@ -7,7 +7,6 @@ function Shoulders() {
   const targets = [ 'delts']
   const [currentIndexByTarget, setCurrentIndexByTarget] = useState({});
   const [fetchedExercisesByTarget, setFetchedExercisesByTarget] = useState({});
-  const [lastPageNotification, setLastPageNotification] = useState(false);
   const [activeTab, setActiveTab] = useState('delts');
   const [error, setError] = useState(null);
     
@@ -55,7 +54,7 @@ function Shoulders() {
 
   useEffect(() => {
     fetchDataForTarget(activeTab);
-  }, [activeTab]);
+  }, [activeTab, fetchDataForTarget]);
 
   const handleTabClick = (target) => {
     setActiveTab(target);

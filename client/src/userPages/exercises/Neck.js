@@ -7,7 +7,6 @@ function Neck() {
  const targets = [ 'levator scapulae']
   const [currentIndexByTarget, setCurrentIndexByTarget] = useState({});
   const [fetchedExercisesByTarget, setFetchedExercisesByTarget] = useState({});
-  const [lastPageNotification, setLastPageNotification] = useState(false);
   const [activeTab, setActiveTab] = useState('levator scapulae');
   const [error, setError] = useState(null);
     

@@ -53,7 +53,7 @@ function Abs () {
 
   useEffect(() => {
     fetchDataForTarget(activeTab);
-  }, [activeTab, fetchedExercisesByTarget]);
+  }, [activeTab, fetchDataForTarget]);
 
   const handleTabClick = (target) => {
     setActiveTab(target);
