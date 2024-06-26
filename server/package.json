@@ -4,10 +4,12 @@
   "description": "",
   "main": "server.js",
   "scripts": {
-    "test": "jest",
     "dev": "nodemon server.js",
     "start": "node server.js",
-    "build": "npm install"
+    "client": "npm run client",
+    "build": "npm install && npm run build:client",
+    "build:client": "echo 'Client build step, if applicable'",
+    "test": "jest"
   },
   "keywords": [],
   "author": "",
