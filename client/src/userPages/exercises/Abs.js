@@ -104,12 +104,10 @@ return (
         <ul className="nav nav-tabs card-header-tabs" id='abs-nav-tabs'>
           {targets.map(target => (
             <li className="nav-item" id='abs-nav-item' key={target}>
-              <a  
-                className={`nav-link ${activeTab === target ? 'active' : 'non-active'}`} 
-                href="javascript:void(0);" 
-                onClick={() => handleTabClick(target)}
-                style={activeTab === target ? activeStyle : nonActiveStyle}
-                data-testid={`tab-${target}`}
+              <a className={`nav-link ${activeTab === target ? 'active' : 'non-active'}`} 
+                 onClick={() => handleTabClick(target)}
+                 style={activeTab === target ? activeStyle : nonActiveStyle}
+                 data-testid={`tab-${target}`}
               > 
                 {target}
               </a>

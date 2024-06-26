@@ -106,7 +106,6 @@ function Back () {
           {targets.map(target => (
           <li className="nav-item" id='back-nav-item' key={target}>
             <a  className={`nav-link ${activeTab === target ? 'active' : 'non-active'}`} 
-                href="javascript:void(0);" 
                 onClick={() => handleTabClick(target)}
                 style={activeTab === target ? activeStyle : nonActiveStyle}
                 data-testid={`tab-${target}`}

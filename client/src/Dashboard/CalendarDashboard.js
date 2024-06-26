@@ -123,13 +123,8 @@ function CalendarDashboard() {
           <ul className="nav nav-tabs card-header-tabs" id='workout-nav-tabs'>
             {Object.keys(groupedWorkouts).map(date => (
               <li className="nav-item" id='workout-nav-item' key={date}>
-                <a
-                  className={`nav-link ${activeTab === date ? 'active' : 'non-active'}`}
-                  href="#"
-                  onClick={(event) => {
-                    event.preventDefault();
-                    handleTabClick(date)
-                  }}
+                <a className={`nav-link ${activeTab === date ? 'active' : 'non-active'}`}
+                   onClick={(event) => { event.preventDefault(); handleTabClick(date) }}
                 >
                   <span className="date-text">{date}</span>
                   <br></br>
