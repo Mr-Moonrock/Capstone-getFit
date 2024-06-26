@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from 'react';
+import React, { useState, useEffect, useCallback } from 'react';
 import ExpandableCard from './ExpandableCard';
 import axios from 'axios';
 import './styles/Shoulders.css';
@@ -11,7 +11,7 @@ function Shoulders() {
   const [activeTab, setActiveTab] = useState('delts');
   const [error, setError] = useState(null);
     
-  const fetchDataForTarget = (target) => {
+  const fetchDataForTarget = useCallback((target) => {
     axios.get(`https://exercisedb.p.rapidapi.com/exercises/target/${target}`, {
       params: { limit: '100' },
       headers: {
@@ -43,15 +43,15 @@ function Shoulders() {
           data: prevState[target] 
             ? [...prevState[target].data, ...newExercises] 
             : newExercises, 
-          currentIndex: 0 }
+          currentIndex: 0 
+        }
       }));
-      setError(null);
     })
     .catch(error => {
       console.error('Error fetching data:', error);
       setError('Error fetching data');
     });
-  };
+  }, [fetchedExercisesByTarget]);
 
   useEffect(() => {
     fetchDataForTarget(activeTab);
@@ -85,8 +85,7 @@ function Shoulders() {
           }
         }));
       } else {
-        console.log('No more exercises to fetch');
-        setLastPageNotification(true);
+        setError('No more exercises to show.');
       }
     }
   };

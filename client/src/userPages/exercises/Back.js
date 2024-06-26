@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from 'react';
+import React, { useState, useEffect, useCallback } from 'react';
 import axios from 'axios';
 import ExpandableCard from './ExpandableCard';
 import './styles/Back.css';
@@ -7,11 +7,10 @@ function Back () {
   const targets = [ 'upper back', 'lats', 'spine', 'traps']
   const [currentIndexByTarget, setCurrentIndexByTarget] = useState({});
   const [fetchedExercisesByTarget, setFetchedExercisesByTarget] = useState({});
-  const [lastPageNotification, setLastPageNotification] = useState(false);
   const [activeTab, setActiveTab] = useState('upper back');
   const [error, setError] = useState(null);
     
-  const fetchDataForTarget = (target) => {
+  const fetchDataForTarget = useCallback((target) => {
     const encodedTarget = encodeURIComponent(target);
     axios.get(`https://exercisedb.p.rapidapi.com/exercises/target/${encodedTarget}`, {
       params: { limit: '100' },
@@ -43,19 +42,19 @@ function Back () {
           data: prevState[target] 
             ? [...prevState[target].data, ...newExercises] 
             : newExercises, 
-          currentIndex: 0 }
+          currentIndex: 0 
+        }
       }));
-      setError(null);
     })
     .catch(error => {
       console.error('Error fetching data:', error);
       setError('Error fetching data');
     });
-  };
+  },[fetchedExercisesByTarget]);
 
   useEffect(() => {
     fetchDataForTarget(activeTab);
-  }, [activeTab]);
+  }, [activeTab, fetchDataForTarget]);
 
   const handleTabClick = (target) => {
     setActiveTab(target);
@@ -85,7 +84,7 @@ function Back () {
           }
         }));
       } else {
-        setLastPageNotification(true);
+        setError('No more exercises to show.');
       }
     }
   };

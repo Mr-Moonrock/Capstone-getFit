@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from 'react';
+import React, { useState, useEffect, useCallback } from 'react';
 import axios from 'axios';
 import ExpandableCard from './ExpandableCard';
 import './styles/Cardio.css';
@@ -7,11 +7,10 @@ function Cardio () {
   const targets = [ 'cardiovascular system' ]
   const [currentIndexByTarget, setCurrentIndexByTarget] = useState({});
   const [fetchedExercisesByTarget, setFetchedExercisesByTarget] = useState({});
-  const [lastPageNotification, setLastPageNotification] = useState(false);
   const [activeTab, setActiveTab] = useState('cardiovascular system');
   const [error, setError] = useState(null);
     
-  const fetchDataForTarget = (target) => {
+  const fetchDataForTarget = useCallback((target) => {
     const encodedTarget = encodeURIComponent(target);
     axios.get(`https://exercisedb.p.rapidapi.com/exercises/target/${encodedTarget}`, {
       params: { limit: '100' },
@@ -44,19 +43,19 @@ function Cardio () {
           data: prevState[target] 
             ? [...prevState[target].data, ...newExercises] 
             : newExercises, 
-          currentIndex: 0 }
+          currentIndex: 0 
+        }
       }));
-      setError(null);
     })
     .catch(error => {
       console.error('Error fetching data:', error);
       setError('Error fetching data');
     });
-  };
+  },[fetchedExercisesByTarget]); 
 
   useEffect(() => {
     fetchDataForTarget(activeTab);
-  }, [activeTab]);
+  }, [activeTab, fetchDataForTarget]); 
 
   const handleTabClick = (target) => {
     setActiveTab(target);
@@ -86,7 +85,7 @@ function Cardio () {
           }
         }));
       } else {
-        setLastPageNotification(true);
+        setError('No more exercises to show.');
       }
     }
   };

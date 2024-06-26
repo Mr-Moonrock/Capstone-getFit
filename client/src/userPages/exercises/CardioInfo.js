@@ -35,7 +35,7 @@ function CardioInfo () {
           </div>
         </div>
       </div>
-      <img src={CardioInfoImage} className='cardioImg'/>
+      <img src={CardioInfoImage} alt='cardio-info-image-1' className='cardioImg'/>
       <div className='row'>
         <div classname='col'>
           <div className='container py-3 opacity-bkgrd'> 
@@ -73,7 +73,7 @@ function CardioInfo () {
             <p>
             Increased metabolism (rate that calories are burned), lasting 24 to 48 hours, as well as an increase in muscle size, strength and power are all possible benefits of HIIT. Gaining a high metabolism can help your body burn more calories inside and outside of the gym as well as improve your body mass index (BMI). Your BMI is a calculation of your body mass and height to determine if your weight is healthy. Sprinting, spinning, burpees and planks (oh my!) are great ways to incorporate high-intensity intervals into your workout. Intervals of 20 seconds of high-intensity, high-resistance cycling followed by 40 seconds of low-intensity, low-resistance cycling is a good exercise to try out on a bike. It might even be as simple as a 20-second sprint followed by a 40-second break before repeating the process. Athletes, individuals interested in weight loss and those looking to train at a higher level of intensity can all benefit from HIIT cardio.
             </p>
-            <img src={CardioInfoImage2} className='cardioImg-2'/>
+            <img src={CardioInfoImage2} alt='cardio-info-image-2' className='cardioImg-2'/>
             <p>
             <b> <i> Is fast-paced and high-intensity cardio right for you? </i> </b> High-intensive workouts burn a ton of calories in a small amount of time. If you like short workouts, the gym session will be the shortest of the three types of cardio which makes it the most time efficient for a person with a busy schedule. It can also be a great way to gain and retain muscles while preserving and increasing your metabolism. Although, HIIT exercises tend to have a larger recovery period. With its difficult routines it’s commonly affiliated with muscle soreness post-workout. It can also elevate your cortisol levels, which is known as the stress hormone.
             </p>
@@ -84,7 +84,7 @@ function CardioInfo () {
             <p>
             MISS cardio is one of the most prevalent forms of exercise. What types of physical activity count as a MISS workout? Well, it is technically anything that causes a heart rate of 140 to 160 beats per minute, such as jogging, elliptical or stair master.
             </p>
-            <img src={hittVsliss} className='hittVsliss'/>
+            <img src={hittVsliss} alt='cardio-info-hitt-image' className='hittVsliss'/>
             <p>
             The type of cardio burns much more calories than HIIT. MISS cardio can help individuals who wish to build their endurance and endorphins, as well as competitive or endurance athletes and people who want to relieve stress. These activities, like HIIT, require a higher amount of oxygen and are classified as aerobic. This raises your heart rate and makes your lungs work harder, which helps you burn calories. The elliptical, spin bike, stair master, jogging, rowing, treadmill and other cardio machines are great ways to incorporate this into your workout. This type of training can help you burn the most calories if your objective is to lose weight.
             </p>
@@ -96,7 +96,7 @@ function CardioInfo () {
 
           
             
-            <img src={heartRateChart} className='heartRateChart'/>
+            <img src={heartRateChart} alt='cardio-info-hr-image' className='heartRateChart'/>
           
 
           <div className='container py-3 opacity-bkgrd'>

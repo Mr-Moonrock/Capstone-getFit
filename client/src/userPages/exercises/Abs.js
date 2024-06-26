@@ -7,11 +7,10 @@ function Abs () {
   const targets = [ 'abs' ]
   const [currentIndexByTarget, setCurrentIndexByTarget] = useState({});
   const [fetchedExercisesByTarget, setFetchedExercisesByTarget] = useState({});
-  const [lastPageNotification, setLastPageNotification] = useState(false);
   const [activeTab, setActiveTab] = useState('abs');
   const [error, setError] = useState(null);
     
-  const fetchDataForTarget = (target) => {
+  const fetchDataForTarget = useCallback((target) => {
     axios.get(`https://exercisedb.p.rapidapi.com/exercises/target/${target}`, {
       params: { limit: '100' },
       headers: {
@@ -42,19 +41,19 @@ function Abs () {
           data: prevState[target] 
             ? [...prevState[target].data, ...newExercises] 
             : newExercises, 
-          currentIndex: 0 }
+          currentIndex: 0 
+        }
       }));
-      setError(null);
     })
     .catch(error => {
       console.error('Error fetching data:', error);
       setError('Error fetching data');
     });
-  };
+  },[fetchedExercisesByTarget])
 
   useEffect(() => {
     fetchDataForTarget(activeTab);
-  }, [activeTab]);
+  }, [activeTab, fetchedExercisesByTarget]);
 
   const handleTabClick = (target) => {
     setActiveTab(target);
@@ -84,7 +83,7 @@ function Abs () {
           }
         }));
       } else {
-        setLastPageNotification(true);
+        setError('No more exercises to show.');
       }
     }
   };
