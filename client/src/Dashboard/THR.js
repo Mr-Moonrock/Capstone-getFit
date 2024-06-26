@@ -22,28 +22,28 @@ function THR () {
     }
   }
 
-  useEffect(() => {
-    if (!currentUser) {
-      navigate('/login')
-      return;
-  }
+useEffect(() => {
   const fetchData = async () => {
     try {
-        const thrValues = await getThrValuesFromDb();
-        if (thrValues.userThrData) {
-          const thrMinValue = thrValues.userThrData.thr_min;
-          const thrMaxValue = thrValues.userThrData.thr_max;
-          setThrMin(thrMinValue)
-          setThrMax(thrMaxValue)
-        } else {
-          console.error('THR data not found')
-        }
-      } catch (err) {
-        console.error('Error getting THR data', err)
+      if (!currentUser) {
+        navigate('/login')
+        return;
       }
+      const thrValues = await getThrValuesFromDb();
+      if (thrValues.userThrData) {
+        const thrMinValue = thrValues.userThrData.thr_min;
+        const thrMaxValue = thrValues.userThrData.thr_max;
+        setThrMin(thrMinValue)
+        setThrMax(thrMaxValue)
+      } else {
+        console.error('THR data not found')
+      }
+    } catch (err) {
+      console.error('Error getting THR data', err)
     }
-    fetchData();
-  }, [[currentUser, getThrValuesFromDb, navigate]])
+  }
+  fetchData();
+}, [currentUser, getThrValuesFromDb, navigate])
 
   return (
     <div>

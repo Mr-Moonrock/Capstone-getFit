@@ -22,13 +22,13 @@ function Bodyfat () {
   }
 
   useEffect(() => {
-    if (!currentUser) {
-      navigate('/login')
-      return;
-  }
-  const fetchData = async () => {
-    try {
-        const bodyfatValues = await getBodyfatFromDb();
+    const fetchData = async () => {
+      try {
+        if (!currentUser) {
+          navigate('/login')
+          return;
+      }
+      const bodyfatValues = await getBodyfatFromDb();
         if (bodyfatValues.userBodyfatData) {
           const userNavyBfpValue = bodyfatValues.userBodyfatData.navy_bfp;
           setNavyBfp(userNavyBfpValue)
@@ -36,7 +36,7 @@ function Bodyfat () {
           console.error('Bodyfat data not found')
         }
       } catch (err) {
-        console.error('Error getting Bodyfat data', err)
+          console.error('Error getting Bodyfat data', err)
       }
     }
     fetchData();

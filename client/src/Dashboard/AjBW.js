@@ -22,28 +22,28 @@ function AjBW () {
     }
   }
 
-  useEffect(() => {
-    if (!currentUser) {
-      navigate('/login')
-      return;
-  }
+useEffect(() => {
   const fetchData = async () => {
     try {
-        const ajbwValues = await getAjbwFromDb();
-        if (ajbwValues.userAjbwData) {
-          const userNavyBfpValue = ajbwValues.userAjbwData.ajbw;
-          const userIbwRobinsonValue = ajbwValues.userAjbwData.ibw_robinson
-          setAjbw(userNavyBfpValue)
-          setIbbwRobinson(userIbwRobinsonValue)
-        } else {
-          console.error('AjBW data not found')
-        }
-      } catch (err) {
-        console.error('Error getting AjBW data', err)
+      if (!currentUser) {
+        navigate('/login')
+        return;
       }
-    };
-    fetchData();
-  }, [currentUser, getAjbwFromDb, navigate]);
+      const ajbwValues = await getAjbwFromDb();
+      if (ajbwValues.userAjbwData) {
+        const userNavyBfpValue = ajbwValues.userAjbwData.ajbw;
+        const userIbwRobinsonValue = ajbwValues.userAjbwData.ibw_robinson
+        setAjbw(userNavyBfpValue)
+        setIbbwRobinson(userIbwRobinsonValue)
+      } else {
+        console.error('AjBW data not found')
+      }
+    } catch (err) {
+      console.error('Error getting AjBW data', err)
+    }
+  };
+  fetchData();
+}, [currentUser, getAjbwFromDb, navigate]);
 
   return (
     <div>

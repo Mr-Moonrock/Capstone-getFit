@@ -23,30 +23,30 @@ function FFMI () {
     }
   }
 
-  useEffect(() => {
-    if (!currentUser) {
-      navigate('/login')
-      return;
-  }
+useEffect(() => {
   const fetchData = async () => {
     try {
-        const ffmiValues = await getFfmiFromDb();
-        if (ffmiValues.userFfmiData) {
-          const userFfmiValue = ffmiValues.userFfmiData.ffmi;
-          const userFatFreeMassValue = ffmiValues.userFfmiData.fat_free_mass;
-          const userTotalBodyFat = ffmiValues.userFfmiData.total_body_fat;
-          setFfmi(userFfmiValue)
-          setFatFreeMass(userFatFreeMassValue)
-          setTotalBodyFat(userTotalBodyFat)
-        } else {
-          console.error('FFMI data not found')
-        } 
-      } catch (err) {
-        console.error('Error getting FFMI data', err)
+      if (!currentUser) {
+        navigate('/login')
+        return;
       }
+      const ffmiValues = await getFfmiFromDb();
+      if (ffmiValues.userFfmiData) {
+        const userFfmiValue = ffmiValues.userFfmiData.ffmi;
+        const userFatFreeMassValue = ffmiValues.userFfmiData.fat_free_mass;
+        const userTotalBodyFat = ffmiValues.userFfmiData.total_body_fat;
+        setFfmi(userFfmiValue)
+        setFatFreeMass(userFatFreeMassValue)
+        setTotalBodyFat(userTotalBodyFat)
+      } else {
+        console.error('FFMI data not found')
+      } 
+    } catch (err) {
+      console.error('Error getting FFMI data', err)
     }
-    fetchData();
-  }, [currentUser, getFfmiFromDb, navigate]);
+  }
+  fetchData();
+}, [currentUser, getFfmiFromDb, navigate]);
 
   return (
     <div>

@@ -24,13 +24,13 @@ function BMR () {
     }
   }
 
-  useEffect(() => {
-    if (!currentUser) {
-      navigate('/login')
-      return;
-  }
+useEffect(() => {
   const fetchData = async () => {
     try {
+      if (!currentUser) {
+        navigate('/login')
+        return;
+      }
       const bmrValues = await getThrValuesFromDb();
       if (bmrValues && bmrValues.userBmrData) {
         const userBmrValue = bmrValues.userBmrData.bmr;
@@ -43,7 +43,7 @@ function BMR () {
     }
   }
   fetchData();
-}, [[currentUser, navigate]])
+}, [[currentUser, getThrValuesFromDb, navigate]])
 
   return (
     <div>

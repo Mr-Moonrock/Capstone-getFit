@@ -1,4 +1,4 @@
-import React, { useState, useEffect, useContext } from 'react';
+import React, { useState, useEffect, useContext, useCallback } from 'react';
 import './styles/UserInfo.css'
 import { UserContext } from '../UserContext';
 import { useNavigate } from 'react-router-dom';
@@ -11,57 +11,94 @@ function UserInfo () {
   const [ neck, setNeck ] = useState(0);
   const [ hip, setHip ] = useState(0);
   const [ fitnessLevel, setFitnessLevel ] = useState('')
-  const [ bodyfat, setBodyfat] = useState(0);
   const navigate = useNavigate();
   const { currentUser } = useContext(UserContext) || {};
 
-  const getUserInfoFromDb = async () => {
-    try {
-      const userId = currentUser.id;
-      const baseURL = `${process.env.REACT_APP_BACKEND_URL}/bmi`
-      const res = await fetch(`${baseURL}/bodyInfo/${userId}`)
-      const data = await res.json();
-      return data
-    } catch (err) {
-      console.error('Error getting User Info')
-      return [];
+  const fetchData = useCallback(async () => {
+    const getUserInfoFromDb = async () => {
+      try {
+        const userId = currentUser.id;
+        const baseURL = `${process.env.REACT_APP_BACKEND_URL}/bmi`
+        const res = await fetch(`${baseURL}/bodyInfo/${userId}`)
+        const data = await res.json();
+        return data
+      } catch (err) {
+        console.error('Error getting User Info')
+        return null;
+      }
     }
-  }
 
-  useEffect(() => {
-    if (!currentUser) {
-      navigate('/login')
-      return;
-  }
-  const fetchData = async () => {
     try {
+      if (!currentUser) {
+        navigate('/login');
+        return;
+      }
       const userInfoValues = await getUserInfoFromDb();
-      if (userInfoValues.userBodyInfoData) {
-        const userAge = userInfoValues.userBodyInfoData.user_age;
-        const userWeight = userInfoValues.userBodyInfoData.user_weight; 
-        const userHeight = userInfoValues.userBodyInfoData.user_height;
-        const userWaist = userInfoValues.userBodyInfoData.user_waist;
-        const userNeck = userInfoValues.userBodyInfoData.user_neck;
-        const userHip = userInfoValues.userBodyInfoData.user_hip;
-        const fitnessLevel = userInfoValues.userBodyInfoData.user_fitness_level;
-        const bodyfat = userInfoValues.userBodyInfoData.user_bodyfat;
-        setAge(userAge)
-        setWeight(userWeight)
-        setHeight(userHeight)
-        setWaist(userWaist)
-        setNeck(userNeck)
-        setHip(userHip)
-        setFitnessLevel(fitnessLevel)
-        setBodyfat(bodyfat)
+      if (userInfoValues && userInfoValues.userBodyInfoData) {
+        const {
+          user_age,
+          user_weight,
+          user_height,
+          user_waist,
+          user_neck,
+          user_hip,
+          user_fitness_level,
+        } = userInfoValues.userBodyInfoData;
+        setAge(user_age);
+        setWeight(user_weight);
+        setHeight(user_height);
+        setWaist(user_waist);
+        setNeck(user_neck);
+        setHip(user_hip);
+        setFitnessLevel(user_fitness_level);
       } else {
-        console.error('User Info not found')
+        console.error('User Info not found');
       }
     } catch (err) {
-      console.error('Error getting User Info', err)
+      console.error('Error getting User Info', err);
     }
-  }
+  }, [currentUser, navigate])
+  useEffect(() => {
+  
   fetchData();
-}, [ currentUser, getUserInfoFromDb, navigate ])
+}, [currentUser, navigate]);
+
+// useEffect(() => {
+//   const fetchData = async () => {
+//     try {
+//       if (!currentUser) {
+//         navigate('/login')
+//         return;
+//       }
+//       const userInfoValues = await getUserInfoFromDb();
+//       if (userInfoValues.userBodyInfoData) {
+//         const userAge = userInfoValues.userBodyInfoData.user_age;
+//         const userWeight = userInfoValues.userBodyInfoData.user_weight; 
+//         const userHeight = userInfoValues.userBodyInfoData.user_height;
+//         const userWaist = userInfoValues.userBodyInfoData.user_waist;
+//         const userNeck = userInfoValues.userBodyInfoData.user_neck;
+//         const userHip = userInfoValues.userBodyInfoData.user_hip;
+//         const fitnessLevel = userInfoValues.userBodyInfoData.user_fitness_level;
+//         const bodyfat = userInfoValues.userBodyInfoData.user_bodyfat;
+//         setAge(userAge)
+//         setWeight(userWeight)
+//         setHeight(userHeight)
+//         setWaist(userWaist)
+//         setNeck(userNeck)
+//         setHip(userHip)
+//         setFitnessLevel(fitnessLevel)
+//         setBodyfat(bodyfat)
+//       } else {
+//         console.error('User Info not found')
+//       }
+//     } catch (err) {
+//       console.error('Error getting User Info', err)
+//     }
+//   }
+//   fetchData();
+// }, [ currentUser, getUserInfoFromDb, navigate ])
+
+
 
   return (
     <div>
