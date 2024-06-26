@@ -8,7 +8,7 @@ function BMR () {
   const navigate = useNavigate();
   const { currentUser } = useContext(UserContext) || {};
 
-  const getThrValuesFromDb = async () => {
+  const getBmrValuesFromDb = async () => {
     try {
       const userId = currentUser.id;
       const baseURL = `${process.env.REACT_APP_BACKEND_URL}/bmi`
@@ -31,7 +31,7 @@ useEffect(() => {
         navigate('/login')
         return;
       }
-      const bmrValues = await getThrValuesFromDb();
+      const bmrValues = await getBmrValuesFromDb();
       if (bmrValues && bmrValues.userBmrData) {
         const userBmrValue = bmrValues.userBmrData.bmr;
         setBmr(userBmrValue)
@@ -43,7 +43,7 @@ useEffect(() => {
     }
   }
   fetchData();
-}, [[currentUser, getThrValuesFromDb, navigate]])
+}, [currentUser, navigate])
 
   return (
     <div>

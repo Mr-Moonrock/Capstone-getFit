@@ -9,8 +9,6 @@ import './styles/CalendarDashboard.css';
 function CalendarDashboard() {
   const { currentUser } = useContext(UserContext) || {};
   const [ sevenDayWorkoutForecast, setSevenDayWorkoutForecast ] = useState([])
-  const [ isLoading, setIsLoading ] = useState(false);
-  const [ exerciseDetails, setExerciseDetails ] = useState([])
   const [activeTab, setActiveTab] = useState(null);
   const [workoutsReadyForDisplay, setWorkoutsReadyForDisplay] = useState([]);
   const navigate = useNavigate();
@@ -41,7 +39,6 @@ function CalendarDashboard() {
   useEffect(() => {
     const fetchSevenDayDataFromdb = async () => {
       try {
-        setIsLoading(true);
         const userId = currentUser.id;
         const baseUrl = `${process.env.REACT_APP_BACKEND_URL}/calendar/sevenDay/${userId}`;
         const response = await axios.get(baseUrl);
@@ -66,12 +63,10 @@ function CalendarDashboard() {
       } catch (err) {
         console.error('Error fetching sevenDay workout data', err);
         return [];
-      } finally {
-        setIsLoading(false)
-      }
+      } 
     } 
     fetchSevenDayDataFromdb()
-  }, [])
+  }, [currentUser.id])
 
   const extractWorkoutNames = (formattedWorkouts) => {
     const exercisesNames = formattedWorkouts.map(workout => workout.name);
@@ -113,8 +108,7 @@ function CalendarDashboard() {
     if (sevenDayWorkoutForecast.length > 0) {
       const fetchExercises = async () => {
         const exerciseNames = extractWorkoutNames(sevenDayWorkoutForecast);
-        const details = await fetchExercisesFromAPI(exerciseNames);
-        setExerciseDetails(details);
+        await fetchExercisesFromAPI(exerciseNames);
       };
       fetchExercises();
     }
@@ -140,7 +134,6 @@ function CalendarDashboard() {
                   <span className="date-text">{date}</span>
                   <br></br>
                   <span className="time-text">{getTimeRangeForDate(groupedWorkouts[date])}</span>
-                  
                 </a>
               </li>
             ))}

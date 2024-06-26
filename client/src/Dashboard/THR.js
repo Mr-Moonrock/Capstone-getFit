@@ -9,41 +9,41 @@ function THR () {
   const [ thrMax, setThrMax ] = useState(0);
   const navigate = useNavigate();
 
-  const getThrValuesFromDb = async () => {
-    try {
-      const userId = currentUser.id;
-      const baseURL = `${process.env.REACT_APP_BACKEND_URL}/bmi`
-      const res = await fetch(`${baseURL}/thr/${userId}`)
-      const data = await res.json();
-      return data
-    } catch (err) {
-      console.error('Error getting thr values')
-      return [];
+  useEffect(() => {
+    const getThrValuesFromDb = async () => {
+      try {
+        const userId = currentUser.id;
+        const baseURL = `${process.env.REACT_APP_BACKEND_URL}/bmi`
+        const res = await fetch(`${baseURL}/thr/${userId}`)
+        const data = await res.json();
+        return data
+      } catch (err) {
+        console.error('Error getting thr values')
+        return [];
+      }
     }
-  }
 
-useEffect(() => {
-  const fetchData = async () => {
-    try {
-      if (!currentUser) {
-        navigate('/login')
-        return;
+    const fetchData = async () => {
+      try {
+        if (!currentUser) {
+          navigate('/login')
+          return;
+        }
+        const thrValues = await getThrValuesFromDb();
+        if (thrValues.userThrData) {
+          const thrMinValue = thrValues.userThrData.thr_min;
+          const thrMaxValue = thrValues.userThrData.thr_max;
+          setThrMin(thrMinValue)
+          setThrMax(thrMaxValue)
+        } else {
+          console.error('THR data not found')
+        }
+      } catch (err) {
+        console.error('Error getting THR data', err)
       }
-      const thrValues = await getThrValuesFromDb();
-      if (thrValues.userThrData) {
-        const thrMinValue = thrValues.userThrData.thr_min;
-        const thrMaxValue = thrValues.userThrData.thr_max;
-        setThrMin(thrMinValue)
-        setThrMax(thrMaxValue)
-      } else {
-        console.error('THR data not found')
-      }
-    } catch (err) {
-      console.error('Error getting THR data', err)
     }
-  }
-  fetchData();
-}, [currentUser, getThrValuesFromDb, navigate])
+    fetchData();
+  }, [currentUser, navigate])
 
   return (
     <div>

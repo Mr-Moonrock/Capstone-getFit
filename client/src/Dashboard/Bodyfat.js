@@ -40,7 +40,7 @@ function Bodyfat () {
       }
     }
     fetchData();
-  }, [currentUser, getBodyfatFromDb, navigate])
+  }, [currentUser, navigate])
     
   return (
     <div>

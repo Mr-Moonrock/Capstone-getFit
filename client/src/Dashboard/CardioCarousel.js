@@ -3,7 +3,7 @@ import { Link } from 'react-router-dom';
 import hitt from '../images/hitt.jpg';
 import liss from '../images/liss.jpg';
 import miss from '../images/miss.jpg';
-import { Carousel, CarouselItem, CarouselControl, CarouselIndicators, CarouselCaption, Button } from 'reactstrap';
+import { Carousel, CarouselItem, CarouselControl, CarouselIndicators, CarouselCaption } from 'reactstrap';
 import './styles/CardioCarousel.css';
 
   const items = [

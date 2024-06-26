@@ -14,8 +14,6 @@ import { Calendar } from '@fullcalendar/core';
 
 function CalendarComp() {
   const [events, setEvents] = useState([]);
-  const [tasks, setTasks] = useState([]);
-  const [isLoading, setIsLoading] = useState(false);
   const [selectedTarget, setSelectedTarget] = useState('');
   const [droppedTasks, setDroppedTasks] = useState([]);
   const [tasksByTarget, setTasksByTarget] = useState({});
@@ -23,14 +21,13 @@ function CalendarComp() {
   const [totalPages, setTotalPages] = useState(1);
   const [totalExercises, setTotalExercises] = useState(0);
   const [allExercises, setAllExercises] = useState([]);
-  const { currentUser, setCurrentUser } = useContext(UserContext);
+  const { currentUser } = useContext(UserContext);
   const [savedSuccessfully, setSavedSuccessfully] = useState(false);
 
   // CALL TO GET THE TARGET MUSCLES FROM API AND DROP DOWN BOX 
   useEffect(() => {
     const fetchExercises = async (selectedTarget) => {
       try {
-        setIsLoading(true);
         const response = await axios.get(`https://exercisedb.p.rapidapi.com/exercises/target/${selectedTarget}`, {
           params: { limit: '200' },
           headers: {
@@ -45,6 +42,7 @@ function CalendarComp() {
             duration: '10 minutes',
             color: 'rgba(211, 208, 208, 0.608)',
           }))
+          
           makeExercisesDraggable(formattedExercises);
           setAllExercises(formattedExercises)
           updateTasksForTarget(selectedTarget, formattedExercises.slice(0, 50));
@@ -53,20 +51,17 @@ function CalendarComp() {
         } else {
           console.error('Invalid Data format:', response.data);
         }
-        setIsLoading(false);
       } catch (error) {
         console.error('Error fetching exercises', error);
-        setIsLoading(false);
       }
     };
     if (selectedTarget) {
       fetchExercises(selectedTarget);
     }
-  }, [selectedTarget]);  
+  }, [selectedTarget, makeExercisesDraggable]);  
 
     // HANDLE EVENT DROP
   const handleEventDrop = (eventDropInfo) => {
-    console.log('handleEventDrop is being called', eventDropInfo);
     const newStartTime = eventDropInfo.event.start; 
     const newEndTime = eventDropInfo.event.end;
     const droppedExercise = {
@@ -76,17 +71,13 @@ function CalendarComp() {
       endTime: newEndTime
     };
   
-    console.log('Dropped exercise:', droppedExercise);
-  
     const existingIndex = droppedTasks.findIndex(task => task.id === droppedExercise.id);
     if (existingIndex !== -1) {
       const updatedTasks = [...droppedTasks];
       updatedTasks[existingIndex] = droppedExercise;
       setDroppedTasks(updatedTasks); 
-      console.log('Updated tasks:', updatedTasks);
     } else {
         setDroppedTasks(prevTasks => [...prevTasks, droppedExercise]);
-        console.log('New tasks:', [...droppedTasks, droppedExercise]);
     }
   };
 
@@ -151,7 +142,7 @@ function CalendarComp() {
       const endIndex = Math.min(startIndex + 50, allExercises.length);
       updateTasksForTarget(selectedTarget, allExercises.slice(startIndex, endIndex));
     }
-  }, [currentPage, allExercises]); 
+  }, [currentPage, allExercises, selectedTarget]); 
 
   const handleSelectChange = (e) => {
     setSelectedTarget(e.target.value);

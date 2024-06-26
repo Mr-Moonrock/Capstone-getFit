@@ -1,5 +1,4 @@
 import React from 'react';
-import { useLocation } from 'react-router-dom';
 import GetQuotes from './quotes/GetQuotes';
 import AllExercises from './ExercisesCarousel';
 import CardioCarousel from './CardioCarousel'
