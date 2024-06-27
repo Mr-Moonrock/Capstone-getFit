@@ -7,6 +7,9 @@ const pool = new Pool({
   host: process.env.DBHOST,
   port: process.env.DBPORT,
   database: process.env.DBDATABASE,
+  ssl: {
+    rejectUnauthorized: false
+  }
 });
 
 console.log('User', process.env.DBUSER);
