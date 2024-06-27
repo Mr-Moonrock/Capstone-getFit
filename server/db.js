@@ -4,11 +4,12 @@ const { Pool } = require('pg');
 const useSSL = process.env.USE_SSL === 'true';
 
 const pool = new Pool({
-  connectionString: process.env.DATABASE_URL,
-  ssl: useSSL ? { rejectUnauthorized: false } : false
+  user: process.env.DB_USERNAME,
+  passwaord: process.env.DB_PASSWORD,
+  host: process.env.DB_HOST,
+  port: process.env.DB_PORT,
+  database: process.env.DB_DATABASE
 });
-
-console.log('Database', DATABASE_URL);
 
 pool.connect((err, client, release) => {
   if (err) {
