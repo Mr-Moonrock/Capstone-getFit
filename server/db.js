@@ -2,11 +2,11 @@ require('dotenv').config();
 const { Pool } = require('pg');
 
 const pool = new Pool({
-  server: process.env.DB_HOST,
-  database: process.env.DB_DATABASE,
-  port: process.env.DB_PORT,
   user: process.env.DB_USERNAME,
   password: process.env.DB_PASSWORD,
+  host: process.env.DB_HOST,
+  port: process.env.DB_PORT,
+  database: process.env.DB_DATABASE,
   ssl: process.env.NODE_ENV === 'production' ? { 
     rejectUnauthorized: false 
   } : false
@@ -14,7 +14,7 @@ const pool = new Pool({
 
 console.log('user: ' + process.env.DB_USERNAME)
 console.log('password: ' + process.env.DB_PASSWORD)
-console.log('server: ' + process.env.DB_SERVER)
+console.log('host: ' + process.env.DB_SERVER)
 console.log('port: ' + process.env.DB_PORT)
 console.log('database: ' + process.env.DB_DATABASE)
 
