@@ -7,14 +7,11 @@ const pool = new Pool({
   host: process.env.DB_HOST,
   port: process.env.DB_PORT,
   database: process.env.DB_DATABASE,
-  ssl: process.env.NODE_ENV === 'production' ? { 
-    rejectUnauthorized: false 
-  } : false
 });
 
 console.log('user: ' + process.env.DB_USERNAME)
 console.log('password: ' + process.env.DB_PASSWORD)
-console.log('host: ' + process.env.DB_SERVER)
+console.log('host: ' + process.env.DB_HOST)
 console.log('port: ' + process.env.DB_PORT)
 console.log('database: ' + process.env.DB_DATABASE)
 
