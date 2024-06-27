@@ -15,7 +15,7 @@ app.use('/exercises', require('./routes/exercises'));
 app.use('/bmi', require('./routes/bmi'));
 app.use('/calendar', require('./routes/calendar'));
 
-const PORT = process.env.PORT || 5000;
+const PORT = process.env.DB_PORT || 5000;
 app.listen(PORT, () => {
   console.log(`Server is starting on port ${PORT}`);
   pool.connect((err, client, release) => {
