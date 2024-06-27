@@ -5,11 +5,11 @@ const pool = new Pool({
   server: process.env.DB_SERVER,
   database: process.env.DB_DATABASE,
   port: process.env.DB_PORT,
-  username: process.env.DB_USERNAME,
+  user: process.env.DB_USERNAME,
   password: process.env.DB_PASSWORD,
 });
 
-console.log('username: ' + process.env.DB_USER)
+console.log('user: ' + process.env.DB_USERNAME)
 console.log('password: ' + process.env.DB_PASSWORD)
 console.log('server: ' + process.env.DB_SERVER)
 console.log('port: ' + process.env.DB_PORT)
