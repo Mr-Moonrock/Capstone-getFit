@@ -180,7 +180,7 @@ function CalendarComp() {
       endTime: info.event.end
     };
     setDroppedTasks(prevTasks => [...prevTasks, newEvent]);
-    // setTasks(prevTasks => [...prevTasks, newEvent]);
+    setEvents(prevEvents => [...prevEvents, newEvent]);
   };
 
   const handleClickSave = async () => {
