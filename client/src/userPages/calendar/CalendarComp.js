@@ -179,7 +179,7 @@ function CalendarComp() {
 
   const handleClickSave = async () => {
     try {
-      const formattedExercises = tasks.map(task => ({
+      const formattedExercises = droppedTasks.map(task => ({
         userId: currentUser.id,
         name: task.name,
         exerciseDate: task.startTime.toLocaleDateString(
