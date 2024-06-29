@@ -132,19 +132,19 @@ function CalendarComp() {
           return newDroppedTasks;
       }
     });
-    // setTasks(prevTasks => {
-    //   const existingTaskIndex = tasks.findIndex(task => task.id === droppedExercise.id);
-    //   if (existingTaskIndex !== -1) {
-    //       const updatedTasks = [...tasks];
-    //       updatedTasks[existingTaskIndex] = droppedExercise;
-    //       console.log('Updated tasks:', updatedTasks);
-    //       return updatedTasks;
-    //   } else {
-    //       const newTasks = [...prevTasks, droppedExercise];
-    //       console.log('New tasks:', newTasks);
-    //       return newTasks;
-    //   }
-    // });
+    setTasks(prevTasks => {
+      const existingTaskIndex = tasks.findIndex(task => task.id === droppedExercise.id);
+      if (existingTaskIndex !== -1) {
+          const updatedTasks = [...tasks];
+          updatedTasks[existingTaskIndex] = droppedExercise;
+          console.log('Updated tasks:', updatedTasks);
+          return updatedTasks;
+      } else {
+          const newTasks = [...prevTasks, droppedExercise];
+          console.log('New tasks:', newTasks);
+          return newTasks;
+      }
+    });
   };
 
       // SAVE BUTTON 
