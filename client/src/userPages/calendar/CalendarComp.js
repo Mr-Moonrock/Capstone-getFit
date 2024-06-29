@@ -118,13 +118,13 @@ function CalendarComp() {
     setDroppedTasks(prevDroppedTasks => {
       const existingIndex = droppedTasks.findIndex(task => task.id === droppedExercise.id);
       if (existingIndex !== -1) {
-          const updatedDroppedTasks = [...prevdroppedTasks];
+          const updatedDroppedTasks = [...prevDroppedTasks];
           updatedDroppedTasks[existingIndex] = droppedExercise;
           console.log('Updated dropped tasks:', updatedDroppedTasks);
           return updatedDroppedTasks;
       } else {
           const newDroppedTasks = [...prevDroppedTasks, droppedExercise];
-          console.log('New Dropped tasks:', [...droppedTasks, droppedExercise]);
+          console.log('New Dropped tasks:', newDroppedTasks);
           return newDroppedTasks;
       }
     });
@@ -137,7 +137,7 @@ function CalendarComp() {
           return updatedTasks;
       } else {
           const newTasks = [...prevTasks, droppedExercise];
-          console.log('New tasks:', [...tasks, droppedExercise]);
+          console.log('New tasks:', newTasks);
           return newTasks;
       }
     });
