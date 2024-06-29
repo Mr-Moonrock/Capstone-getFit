@@ -257,13 +257,13 @@ function CalendarComp() {
     const exerciseId = parseInt(info.draggedEl.getAttribute('data-exercise-id'));
     console.log('Drop Exercise ID', exerciseId)
     console.log('ALL EXERCISES', allExercises)
-    const exercise = allExercises.find((ex) => ex.id === exerciseId);
+    const exercise = allExercises.find(ex => ex.id === parseInt(exerciseId));
     console.log('DROP EXERCISE', exercise)
 
     
     if (exercise) {
       const newEvent = {
-        id: exercise.id,
+        id: exerciseId,
         title: exercise.name,
         start: info.date,
         end: new Date(info.date.getTime() + 60 * 60 * 1000), // Example: 1 hour event
