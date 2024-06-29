@@ -104,7 +104,7 @@ function CalendarComp() {
     const newStartTime = eventDropInfo.event.start; 
     const newEndTime = eventDropInfo.event.end;
     const droppedExercise = {
-      id: eventDropInfo.event._instance.instanceId,
+      id: eventDropInfo.event.id,
       name: eventDropInfo.event.title,
       startTime: newStartTime,
       endTime: newEndTime
@@ -112,27 +112,32 @@ function CalendarComp() {
   
     console.log('Dropped exercise:', droppedExercise);
 
-    const existingIndex = droppedTasks.findIndex(task => task.id === droppedExercise.id);
-    if (existingIndex !== -1) {
-      const updatedDroppedTasks = [...droppedTasks];
-      updatedDroppedTasks[existingIndex] = droppedExercise;
-      setDroppedTasks(updatedDroppedTasks); 
-      console.log('Updated dropped tasks:', updatedDroppedTasks);
-    } else {
-        setDroppedTasks(prevDroppedTasks => [...prevDroppedTasks, droppedExercise]);
-        console.log('New Dropped tasks:', [...droppedTasks, droppedExercise]);
-    }
-
-    const existingTaskIndex = tasks.findIndex(task => task.id === droppedExercise.id);
-    if (existingTaskIndex !== -1) {
-      const updatedTasks = [...tasks];
-      updatedTasks[existingTaskIndex] = droppedExercise;
-      setTasks(updatedTasks);
-      console.log('Updated tasks:', updatedTasks);
-    } else {
-      setTasks(prevTasks => [...prevTasks, droppedExercise]);
-      console.log('New tasks:', [...tasks, droppedExercise]);
-    }
+    setDroppedTasks(prevDroppedTasks => {
+      const existingIndex = droppedTasks.findIndex(task => task.id === droppedExercise.id);
+      if (existingIndex !== -1) {
+          const updatedDroppedTasks = [...prevdroppedTasks];
+          updatedDroppedTasks[existingIndex] = droppedExercise;
+          console.log('Updated dropped tasks:', updatedDroppedTasks);
+          return updatedDroppedTasks;
+      } else {
+          const newDroppedTasks = [...prevDroppedTasks, droppedExercise];
+          console.log('New Dropped tasks:', [...droppedTasks, droppedExercise]);
+          return newDroppedTasks;
+      }
+    });
+    setTasks(prevTasks => {
+      const existingTaskIndex = tasks.findIndex(task => task.id === droppedExercise.id);
+      if (existingTaskIndex !== -1) {
+          const updatedTasks = [...tasks];
+          updatedTasks[existingTaskIndex] = droppedExercise;
+          console.log('Updated tasks:', updatedTasks);
+          return updatedTasks;
+      } else {
+          const newTasks = [...prevTasks, droppedExercise];
+          console.log('New tasks:', [...tasks, droppedExercise]);
+          return newTasks;
+      }
+    });
   };
 
       // SAVE BUTTON 
@@ -300,7 +305,7 @@ function CalendarComp() {
                   eventDragStop= {handleEventDragStop}            
                   selectable = {true} 
                   select = {handleSelect} 
-                  events = {[...events, ...droppedTasks]} 
+                  events = {[droppedTasks]} 
                   height = {1200}
                   eventBackgroundColor= 'rgba(211, 208, 208, 0.608)'
                   eventBorderColor = 'rgba(211, 208, 208, 0.608)'
