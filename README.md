@@ -5,6 +5,7 @@ Explore a wide range of exercises through our intuitive Exercise Pages, complete
 
 GetFit isn't just about numbers—it's about empowering you to make informed decisions about your health. Whether you're looking to shed pounds, build muscle, or simply maintain a healthy lifestyle, GetFit provides the tools and knowledge to help you achieve your goals.
 
+getFit can be found here(https://getfit123.netlify.app)
 
 ## Features
 ### - Exercise Pages 
