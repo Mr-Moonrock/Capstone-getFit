@@ -55,7 +55,10 @@ function CalendarComp() {
           element.appendChild(deleteButton);
           new Draggable(element, {
             eventData: {
+              id: exercise.id,
               title: exercise.name,
+              start: null, 
+              end: null, 
               duration: '01:00',
               extendedProps: { id: exercise.id }
             }
