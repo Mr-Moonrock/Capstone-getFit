@@ -14,12 +14,13 @@ import 'react-toastify/dist/ReactToastify.css';
 function CalendarComp() {
   const [events, setEvents] = useState([]);
   const [selectedTarget, setSelectedTarget] = useState('');
-  const [droppedTasks, setDroppedTasks] = useState([]);
+  // const [droppedTasks, setDroppedTasks] = useState([]);
   const [tasksByTarget, setTasksByTarget] = useState({});
   const [currentPage, setCurrentPage] = useState(1); 
   const [allExercises, setAllExercises] = useState([]);
   const { currentUser } = useContext(UserContext);
   const [savedSuccessfully, setSavedSuccessfully] = useState(false);
+  const [tasks, setTasks] = useState([]);
 
 
   const updateTasksForTarget = useCallback((selectedTarget, tasks) => {
@@ -34,11 +35,11 @@ function CalendarComp() {
         exercises.forEach(exercise => {
           const element = document.getElementById(`exercise-${exercise.id}`);
           if (element) {
-          const deleteButton = document.createElement('button');
-          deleteButton.innerHTML = '&times;';
-          deleteButton.className='draggable-exercise-delete-btn';
-          deleteButton.onclick = () => handleDeleteExercise(exercise.id);
-          element.appendChild(deleteButton);
+            const deleteButton = document.createElement('button');
+            deleteButton.innerHTML = '&times;';
+            deleteButton.className='draggable-exercise-delete-btn';
+            deleteButton.onclick = () => handleDeleteExercise(exercise.id);
+            element.appendChild(deleteButton);
             new Draggable(element, {
               eventData: {
                 title: exercise.name,
@@ -49,7 +50,7 @@ function CalendarComp() {
           }
         });
       }, 1000); 
-    }, [])
+    }, [handleDeleteExercise])
 
   // CALL TO GET THE TARGET MUSCLES FROM API AND DROP DOWN BOX 
   useEffect(() => {
@@ -101,9 +102,9 @@ function CalendarComp() {
     if (existingIndex !== -1) {
       const updatedTasks = [...droppedTasks];
       updatedTasks[existingIndex] = droppedExercise;
-      setDroppedTasks(updatedTasks); 
+      setTasks(updatedTasks); 
     } else {
-        setDroppedTasks(prevTasks => [...prevTasks, droppedExercise]);
+        setTasks(prevTasks => [...prevTasks, droppedExercise]);
     }
   };
 
@@ -191,7 +192,7 @@ function CalendarComp() {
     setAllExercises((prevExercises) => 
       prevExercises.filter((exercise) => exercise.id !== exerciseId)
     );
-    setDroppedTasks((prevTasks) => 
+    setTasks((prevTasks) => 
       prevTasks.filter((task) => task.id !== exerciseId)
     );
   }
@@ -282,7 +283,7 @@ function CalendarComp() {
                   eventDragStop= {handleEventDragStop}            
                   selectable = {true} 
                   select = {handleSelect} 
-                  events = {events.concat(droppedTasks)} 
+                  events = {events.concat(tasks)} 
                   height = {1200}
                   eventBackgroundColor= 'rgba(211, 208, 208, 0.608)'
                   eventBorderColor = 'rgba(211, 208, 208, 0.608)'
