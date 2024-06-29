@@ -46,8 +46,10 @@ function CalendarComp() {
   const makeExercisesDraggable = useCallback((exercises) => { 
     setTimeout(() => {
       exercises.forEach(exercise => {
+        const randomId = generateRandomId();
         const element = document.getElementById(`exercise-${exercise.id}`);
         if (element) {
+          element.setAttribute('data-exercise-id', randomId);
           const deleteButton = document.createElement('button');
           deleteButton.innerHTML = '&times;';
           deleteButton.className='draggable-exercise-delete-btn';
@@ -70,6 +72,12 @@ function CalendarComp() {
       });
     }, 1000); 
   }, [handleDeleteExercise])
+
+  function generateRandomId() {
+    return Math.floor(Math.random() * 900) + 100; // Generates a random number between 100 and 999
+  }
+
+  const randomId = generateRandomId();
 
   // CALL TO GET THE TARGET MUSCLES FROM API AND DROP DOWN BOX 
   useEffect(() => {
@@ -313,7 +321,7 @@ function CalendarComp() {
               <h5 className='text-center' id='fullCalendar-DragNDrop-Header'> Drag-n-Drop an Exercise: </h5>
               <ul className="list-group" id='calendar-draggable-list'>
                   {tasksByTarget[selectedTarget] && tasksByTarget[selectedTarget].map((exercise, index) => (
-                <li key={index} id={`exercise-${exercise.id}`} className="list-group-item"> {exercise.name} </li>
+                <li key={index} id={`exercise-${exercise.id}`} data-exercise-id={randomId} className="list-group-item"> {exercise.name} </li>
                   ))}
               </ul>
             </div>
