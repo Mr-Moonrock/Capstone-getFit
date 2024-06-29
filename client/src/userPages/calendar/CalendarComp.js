@@ -110,7 +110,7 @@ function CalendarComp() {
     const newStartTime = eventDropInfo.event.start; 
     const newEndTime = eventDropInfo.event.end;
     const droppedExercise = {
-      id: eventDropInfo.event.id,
+      id: eventDropInfo.event._instance.instanceId,
       name: eventDropInfo.event.title,
       startTime: newStartTime,
       endTime: newEndTime
@@ -182,7 +182,7 @@ function CalendarComp() {
       console.log('Dropped taskes ready to be formatted', droppedTasks)
       const formattedExercises = droppedTasks.map(task => ({
         userId: currentUser.id,
-        name: task.name,
+        name: task.title,
         exerciseDate: task.startTime.toLocaleDateString(
           'en-US', { month: 'short', day: 'numeric', year: 'numeric' }),
         exerciseDayOfWeek: task.startTime.toLocaleDateString(
