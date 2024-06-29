@@ -111,7 +111,7 @@ function CalendarComp() {
   
     const existingIndex = droppedTasks.findIndex(task => task.id === droppedExercise.id);
     if (existingIndex !== -1) {
-      const updatedTasks = [... droppedTasks];
+      const updatedTasks = [...droppedTasks];
       updatedTasks[existingIndex] = droppedExercise;
       setDroppedTasks(updatedTasks); 
     } else {
