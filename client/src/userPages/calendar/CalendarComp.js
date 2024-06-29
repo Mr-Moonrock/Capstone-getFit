@@ -247,7 +247,7 @@ function CalendarComp() {
   };
 
   const handleEventDragStart = (e, exerciseId) => {
-    e.dataTransfer.setData('text', exerciseId.toString()); // Set data to transfer
+    e.dataTransfer.setData('text', exerciseId.toString()); 
   };
 
   const handleExternalDrop = (info) => {
@@ -265,10 +265,10 @@ function CalendarComp() {
         id: uniqueEventId,
         title: exercise.name,
         start: info.date,
-        end: new Date(info.date.getTime() + 60 * 60 * 1000), // Example: 1 hour event
+        end: new Date(info.date.getTime() + 60 * 60 * 1000), 
       };
       console.log('NEW EVENT', newEvent)
-      setEvents([...events, newEvent]); // Add event to FullCalendar events
+      setEvents(prevEvents => [...prevEvents, newEvent]);
     }
   }
 
@@ -348,9 +348,9 @@ function CalendarComp() {
           <div className='row'>
             <div className ='col-md-8' id='fullCalendar-container' data-testid='fullCalendar-container'>
               <FullCalendar 
-                  key={events.length}
+                  // key={events.length}
                   plugins = {[ dayGridPlugin, timeGridPlugin, interactionPlugin, bootstrap5Plugin ]}
-                  initialView = {'dayGridMonth'}
+                  initialView = {'timeGridDay'}
                   headerToolbar = {{
                                     start: 'prev,next today',
                                     center: 'title',
