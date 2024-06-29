@@ -29,6 +29,16 @@ function CalendarComp() {
       [selectedTarget]: tasks,
     }))
   }, []);
+
+   // DELETE BUTTON 
+   const handleDeleteExercise = (exerciseId) => {
+    setAllExercises((prevExercises) => 
+      prevExercises.filter((exercise) => exercise.id !== exerciseId)
+    );
+    setTasks((prevTasks) => 
+      prevTasks.filter((task) => task.id !== exerciseId)
+    );
+  }
   
     const makeExercisesDraggable = useCallback((exercises) => { 
       setTimeout(() => {
@@ -187,15 +197,7 @@ function CalendarComp() {
     }
   };
 
-  // DELETE BUTTON 
-  const handleDeleteExercise = (exerciseId) => {
-    setAllExercises((prevExercises) => 
-      prevExercises.filter((exercise) => exercise.id !== exerciseId)
-    );
-    setTasks((prevTasks) => 
-      prevTasks.filter((task) => task.id !== exerciseId)
-    );
-  }
+ 
 
   // HELPER FUNCTIONS 
   const handleEventDragStop = (eventDragInfo) => {
