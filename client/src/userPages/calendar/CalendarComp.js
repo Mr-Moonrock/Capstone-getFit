@@ -14,7 +14,7 @@ import 'react-toastify/dist/ReactToastify.css';
 function CalendarComp() {
   const [events, setEvents] = useState([]);
   const [selectedTarget, setSelectedTarget] = useState('');
-  // const [droppedTasks, setDroppedTasks] = useState([]);
+  const [droppedTasks, setDroppedTasks] = useState([]);
   const [tasksByTarget, setTasksByTarget] = useState({});
   const [currentPage, setCurrentPage] = useState(1); 
   const [allExercises, setAllExercises] = useState([]);
@@ -31,36 +31,39 @@ function CalendarComp() {
   }, []);
 
    // DELETE BUTTON 
-   const handleDeleteExercise = useCallback((exerciseId) => {
+  const handleDeleteExercise = useCallback((exerciseId) => {
     setAllExercises((prevExercises) => 
       prevExercises.filter((exercise) => exercise.id !== exerciseId)
     );
     setTasks((prevTasks) => 
       prevTasks.filter((task) => task.id !== exerciseId)
     );
-  }, [ setAllExercises, setTasks]);
+    setDroppedTasks((prevTasks) =>
+      prevTasks.filter((task) => task.id !== exerciseId)
+    );
+  }, [setAllExercises, setTasks, setDroppedTasks]);
   
-    const makeExercisesDraggable = useCallback((exercises) => { 
-      setTimeout(() => {
-        exercises.forEach(exercise => {
-          const element = document.getElementById(`exercise-${exercise.id}`);
-          if (element) {
-            const deleteButton = document.createElement('button');
-            deleteButton.innerHTML = '&times;';
-            deleteButton.className='draggable-exercise-delete-btn';
-            deleteButton.onclick = () => handleDeleteExercise(exercise.id);
-            element.appendChild(deleteButton);
-            new Draggable(element, {
-              eventData: {
-                title: exercise.name,
-                duration: '01:00',
-                extendedProps: { id: exercise.id }
-              }
-            })
-          }
-        });
-      }, 1000); 
-    }, [handleDeleteExercise])
+  const makeExercisesDraggable = useCallback((exercises) => { 
+    setTimeout(() => {
+      exercises.forEach(exercise => {
+        const element = document.getElementById(`exercise-${exercise.id}`);
+        if (element) {
+          const deleteButton = document.createElement('button');
+          deleteButton.innerHTML = '&times;';
+          deleteButton.className='draggable-exercise-delete-btn';
+          deleteButton.onclick = () => handleDeleteExercise(exercise.id);
+          element.appendChild(deleteButton);
+          new Draggable(element, {
+            eventData: {
+              title: exercise.name,
+              duration: '01:00',
+              extendedProps: { id: exercise.id }
+            }
+          })
+        }
+      });
+    }, 1000); 
+  }, [handleDeleteExercise])
 
   // CALL TO GET THE TARGET MUSCLES FROM API AND DROP DOWN BOX 
   useEffect(() => {
@@ -83,8 +86,6 @@ function CalendarComp() {
           makeExercisesDraggable(formattedExercises);
           setAllExercises(formattedExercises)
           updateTasksForTarget(selectedTarget, formattedExercises.slice(0, 50));
-          // setTotalExercises(response.data.length);
-          // setTotalPages(Math.ceil(response.data.length / 50));
         } else {
           console.error('Invalid Data format:', response.data);
         }
@@ -108,13 +109,22 @@ function CalendarComp() {
       endTime: newEndTime
     };
   
-    const existingIndex = tasks.findIndex(task => task.id === droppedExercise.id);
+    const existingIndex = droppedTasks.findIndex(task => task.id === droppedExercise.id);
     if (existingIndex !== -1) {
-      const updatedTasks = [...tasks];
+      const updatedTasks = [... droppedTasks];
       updatedTasks[existingIndex] = droppedExercise;
-      setTasks(updatedTasks); 
+      setDroppedTasks(updatedTasks); 
     } else {
-        setTasks(prevTasks => [...prevTasks, droppedExercise]);
+        setDroppedTasks(prevDroppedTasks => [...prevDroppedTasks, droppedExercise]);
+    }
+
+    const existingTaskIndex = tasks.findIndex(task => task.id === droppedExercise.id);
+    if (existingTaskIndex !== -1) {
+      const updatedTasks = [...tasks];
+      updatedTasks[existingTaskIndex] = droppedExercise;
+      setTasks(updatedTasks);
+    } else {
+      setTasks(prevTasks => [...prevTasks, droppedExercise]);
     }
   };
 
@@ -196,8 +206,6 @@ function CalendarComp() {
       setEvents([...events, newEvent]);
     }
   };
-
- 
 
   // HELPER FUNCTIONS 
   const handleEventDragStop = (eventDragInfo) => {
@@ -285,7 +293,7 @@ function CalendarComp() {
                   eventDragStop= {handleEventDragStop}            
                   selectable = {true} 
                   select = {handleSelect} 
-                  events = {events.concat(tasks)} 
+                  events = {events.concat(droppedTasks)} 
                   height = {1200}
                   eventBackgroundColor= 'rgba(211, 208, 208, 0.608)'
                   eventBorderColor = 'rgba(211, 208, 208, 0.608)'
