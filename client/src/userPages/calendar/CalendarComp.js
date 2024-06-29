@@ -116,6 +116,7 @@ function CalendarComp() {
     console.log('Dropped exercise:', droppedExercise);
 
     setDroppedTasks(prevDroppedTasks => {
+      console.log('Previous droppedTasks:', prevDroppedTasks);
       const existingIndex = droppedTasks.findIndex(task => task.id === droppedExercise.id);
       if (existingIndex !== -1) {
           const updatedDroppedTasks = [...prevDroppedTasks];
@@ -128,19 +129,19 @@ function CalendarComp() {
           return newDroppedTasks;
       }
     });
-    setTasks(prevTasks => {
-      const existingTaskIndex = tasks.findIndex(task => task.id === droppedExercise.id);
-      if (existingTaskIndex !== -1) {
-          const updatedTasks = [...tasks];
-          updatedTasks[existingTaskIndex] = droppedExercise;
-          console.log('Updated tasks:', updatedTasks);
-          return updatedTasks;
-      } else {
-          const newTasks = [...prevTasks, droppedExercise];
-          console.log('New tasks:', newTasks);
-          return newTasks;
-      }
-    });
+    // setTasks(prevTasks => {
+    //   const existingTaskIndex = tasks.findIndex(task => task.id === droppedExercise.id);
+    //   if (existingTaskIndex !== -1) {
+    //       const updatedTasks = [...tasks];
+    //       updatedTasks[existingTaskIndex] = droppedExercise;
+    //       console.log('Updated tasks:', updatedTasks);
+    //       return updatedTasks;
+    //   } else {
+    //       const newTasks = [...prevTasks, droppedExercise];
+    //       console.log('New tasks:', newTasks);
+    //       return newTasks;
+    //   }
+    // });
   };
 
       // SAVE BUTTON 
@@ -170,7 +171,7 @@ function CalendarComp() {
       endTime: info.event.end
     };
     setDroppedTasks(prevTasks => [...prevTasks, newEvent]);
-    setTasks(prevTasks => [...prevTasks, newEvent]);
+    // setTasks(prevTasks => [...prevTasks, newEvent]);
   };
 
   const handleClickSave = async () => {
@@ -234,6 +235,25 @@ function CalendarComp() {
     }
   };
 
+  const handleDragStart = (e, exerciseId) => {
+    e.dataTransfer.setData('text', exerciseId.toString()); // Set data to transfer
+  };
+
+  const handleExternalDrop = (info) => {
+    const exerciseId = parseInt(info.draggedEl.getAttribute('data-exercise-id'));
+    const exercise = allExercises.find((ex) => ex.id === exerciseId);
+
+    if (exercise) {
+      const newEvent = {
+        id: exercise.id,
+        title: exercise.name,
+        start: info.date,
+        end: new Date(info.date.getTime() + 60 * 60 * 1000), // Example: 1 hour event
+      };
+      setEvents([...events, newEvent]); // Add event to FullCalendar events
+    }
+  }
+
   // HELPER FUNCTIONS 
   const handleEventDragStop = (eventDragInfo) => {
     if (!eventDragInfo.jsEvent.target.closest('.fc')) {
@@ -241,6 +261,10 @@ function CalendarComp() {
       setEvents((prevEvents) => prevEvents.filter((event) => event.id !== eventId));
     }
   };
+
+  useEffect(() => {
+    console.log('Updated events for FullCalendar:', events.concat(droppedTasks));
+  }, [events, droppedTasks]);
 
   return (
     <div className='' id='fullCalendar-full-container'>
@@ -317,12 +341,12 @@ function CalendarComp() {
                   editable = {true}
                   selectMirror={true}
                   eventDrop = {handleEventDrop}
-                  drop={handleEventDrop}
-                  eventReceive={handleEventReceive}
-                  eventDragStop= {handleEventDragStop}            
+                  drop={(info) => handleExternalDrop(info)}
+                  eventReceive={(info) => handleEventReceive(info)}
+                  eventDragStop={(info) => handleEventDragStop(info)}            
                   selectable = {true} 
                   select = {handleSelect} 
-                  events = {events.concat(droppedTasks)} 
+                  events={events.concat(droppedTasks)} 
                   height = {1200}
                   eventBackgroundColor= 'rgba(211, 208, 208, 0.608)'
                   eventBorderColor = 'rgba(211, 208, 208, 0.608)'
