@@ -46,10 +46,9 @@ function CalendarComp() {
   const makeExercisesDraggable = useCallback((exercises) => { 
     setTimeout(() => {
       exercises.forEach(exercise => {
-        const randomId = generateRandomId();
         const element = document.getElementById(`exercise-${exercise.id}`);
         if (element) {
-          element.setAttribute('data-exercise-id', randomId);
+          element.setAttribute('data-exercise-id', exercise.id);
           const deleteButton = document.createElement('button');
           deleteButton.innerHTML = '&times;';
           deleteButton.className='draggable-exercise-delete-btn';
@@ -74,12 +73,11 @@ function CalendarComp() {
   }, [handleDeleteExercise])
 
   function generateRandomId() {
-    return Math.floor(Math.random() * 900) + 100; // Generates a random number between 100 and 999
+    return Math.floor(Math.random() * 900) + 100; 
   }
-
   const randomId = generateRandomId();
 
-  // CALL TO GET THE TARGET MUSCLES FROM API AND DROP DOWN BOX 
+ 
   useEffect(() => {
     const fetchExercises = async (selectedTarget) => {
       try {
