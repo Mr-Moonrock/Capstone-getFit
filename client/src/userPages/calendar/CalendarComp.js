@@ -31,14 +31,14 @@ function CalendarComp() {
   }, []);
 
    // DELETE BUTTON 
-   const handleDeleteExercise = (exerciseId) => {
+   const handleDeleteExercise = useCallback((exerciseId) => {
     setAllExercises((prevExercises) => 
       prevExercises.filter((exercise) => exercise.id !== exerciseId)
     );
     setTasks((prevTasks) => 
       prevTasks.filter((task) => task.id !== exerciseId)
     );
-  }
+  }, [ setAllExercises, setTasks]);
   
     const makeExercisesDraggable = useCallback((exercises) => { 
       setTimeout(() => {
