@@ -31,7 +31,7 @@ function CalendarComp() {
   }, []);
 
    // DELETE BUTTON 
-  const handleDeleteExercise = useCallback((exerciseId) => {
+  const handleDeleteExercise = (exerciseId) => {
     setAllExercises((prevExercises) => 
       prevExercises.filter((exercise) => exercise.id !== exerciseId)
     );
@@ -41,9 +41,9 @@ function CalendarComp() {
     setDroppedTasks((prevTasks) =>
       prevTasks.filter((task) => task.id !== exerciseId)
     );
-  }, [setAllExercises, setTasks, setDroppedTasks]);
+  };
   
-  const makeExercisesDraggable = useCallback((exercises) => { 
+  const makeExercisesDraggable = (exercises) => { 
     setTimeout(() => {
       exercises.forEach(exercise => {
         const element = document.getElementById(`exercise-${exercise.id}`);
@@ -63,7 +63,7 @@ function CalendarComp() {
         }
       });
     }, 1000); 
-  }, [handleDeleteExercise])
+  }
 
   // CALL TO GET THE TARGET MUSCLES FROM API AND DROP DOWN BOX 
   useEffect(() => {
