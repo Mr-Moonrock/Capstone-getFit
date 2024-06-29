@@ -98,9 +98,9 @@ function CalendarComp() {
       endTime: newEndTime
     };
   
-    const existingIndex = droppedTasks.findIndex(task => task.id === droppedExercise.id);
+    const existingIndex = tasks.findIndex(task => task.id === droppedExercise.id);
     if (existingIndex !== -1) {
-      const updatedTasks = [...droppedTasks];
+      const updatedTasks = [...tasks];
       updatedTasks[existingIndex] = droppedExercise;
       setTasks(updatedTasks); 
     } else {
@@ -128,7 +128,7 @@ function CalendarComp() {
 
   const handleClickSave = async () => {
     try {
-      const formattedExercises = droppedTasks.map(task => ({
+      const formattedExercises = tasks.map(task => ({
         userId: currentUser.id,
         name: task.name,
         exerciseDate: task.startTime.toLocaleDateString(
