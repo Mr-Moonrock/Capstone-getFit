@@ -247,9 +247,12 @@ function CalendarComp() {
   const handleExternalDrop = (info) => {
     console.log('Drop INFO', info)
     const exerciseId = parseInt(info.draggedEl.getAttribute('data-exercise-id'));
+    console.log('Drop Exercise ID', exerciseId)
+    console.log('ALL EXERCISES', allExercises)
     const exercise = allExercises.find((ex) => ex.id === exerciseId);
-    console.log('Drop Exercise ID')
     console.log('DROP EXERCISE', exercise)
+
+    
     if (exercise) {
       const newEvent = {
         id: exercise.id,
