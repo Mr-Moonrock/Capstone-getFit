@@ -53,6 +53,9 @@ function CalendarComp() {
           deleteButton.className='draggable-exercise-delete-btn';
           deleteButton.onclick = () => handleDeleteExercise(exercise.id);
           element.appendChild(deleteButton);
+          element.draggable = true;
+          element.addEventListener('dragstart', (e) => handleEventDragStart(e, exercise.id));
+
           new Draggable(element, {
             eventData: {
               id: exercise.id,
@@ -235,7 +238,7 @@ function CalendarComp() {
     }
   };
 
-  const handleDragStart = (e, exerciseId) => {
+  const handleEventDragStart = (e, exerciseId) => {
     e.dataTransfer.setData('text', exerciseId.toString()); // Set data to transfer
   };
 
@@ -343,7 +346,7 @@ function CalendarComp() {
                   eventDrop = {handleEventDrop}
                   drop={(info) => handleExternalDrop(info)}
                   eventReceive={(info) => handleEventReceive(info)}
-                  eventDragStop={(info) => handleEventDragStop(info)}            
+                  eventDragStop={(info) => handleEventDragStop(info)}          
                   selectable = {true} 
                   select = {handleSelect} 
                   events={events.concat(droppedTasks)} 
