@@ -308,7 +308,7 @@ function CalendarComp() {
                   eventDragStop= {handleEventDragStop}            
                   selectable = {true} 
                   select = {handleSelect} 
-                  events = {[droppedTasks]} 
+                  events = {events.concat(droppedTasks)} 
                   height = {1200}
                   eventBackgroundColor= 'rgba(211, 208, 208, 0.608)'
                   eventBorderColor = 'rgba(211, 208, 208, 0.608)'
