@@ -161,6 +161,18 @@ function CalendarComp() {
     }
   };
 
+  const handleEventReceive = (info) => {
+    console.log('Event received:', info);
+    const newEvent = {
+      id: info.event.id,
+      title: info.event.title,
+      startTime: info.event.start,
+      endTime: info.event.end
+    };
+    setDroppedTasks(prevTasks => [...prevTasks, newEvent]);
+    setTasks(prevTasks => [...prevTasks, newEvent]);
+  };
+
   const handleClickSave = async () => {
     try {
       const formattedExercises = tasks.map(task => ({
@@ -265,8 +277,7 @@ function CalendarComp() {
               )}
               <h5 className='text-center' id='fullCalendar-DragNDrop-Header'> Drag-n-Drop an Exercise: </h5>
               <ul className="list-group" id='calendar-draggable-list'>
-                  {tasksByTarget[selectedTarget] && 
-                  tasksByTarget[selectedTarget].map((exercise, index) => (
+                  {tasksByTarget[selectedTarget] && tasksByTarget[selectedTarget].map((exercise, index) => (
                 <li key={index} id={`exercise-${exercise.id}`} className="list-group-item"> {exercise.name} </li>
                   ))}
               </ul>
@@ -304,7 +315,10 @@ function CalendarComp() {
                                   }}
                   droppable = {true}
                   editable = {true}
+                  selectMirror={true}
                   eventDrop = {handleEventDrop}
+                  drop={handleEventDrop}
+                  eventReceive={handleEventReceive}
                   eventDragStop= {handleEventDragStop}            
                   selectable = {true} 
                   select = {handleSelect} 
