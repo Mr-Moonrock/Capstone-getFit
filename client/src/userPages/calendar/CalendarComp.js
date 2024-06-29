@@ -179,6 +179,7 @@ function CalendarComp() {
 
   const handleClickSave = async () => {
     try {
+      console.log('Dropped taskes ready to be formatted', droppedTasks)
       const formattedExercises = droppedTasks.map(task => ({
         userId: currentUser.id,
         name: task.name,
@@ -191,6 +192,7 @@ function CalendarComp() {
         exerciseEndTime: task.endTime.toLocaleTimeString(
           'en-US', { hour: 'numeric', minute: '2-digit', hour12: true })
       }));
+      console.log('formatted exercises', formattedExercises);
       await saveWorkoutsToDb(formattedExercises);
     } catch (err) {
       console.error('Error handling click save', err)
