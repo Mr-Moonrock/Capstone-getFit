@@ -111,9 +111,9 @@ function CalendarComp() {
   
     const existingIndex = droppedTasks.findIndex(task => task.id === droppedExercise.id);
     if (existingIndex !== -1) {
-      const updatedTasks = [...droppedTasks];
+      const updatedDroppedTasks = [...droppedTasks];
       updatedTasks[existingIndex] = droppedExercise;
-      setDroppedTasks(updatedTasks); 
+      setDroppedTasks(updatedDroppedTasks); 
     } else {
         setDroppedTasks(prevDroppedTasks => [...prevDroppedTasks, droppedExercise]);
     }
@@ -293,7 +293,7 @@ function CalendarComp() {
                   eventDragStop= {handleEventDragStop}            
                   selectable = {true} 
                   select = {handleSelect} 
-                  events = {events.concat(tasks)} 
+                  events = {events.concat(droppedTasks)} 
                   height = {1200}
                   eventBackgroundColor= 'rgba(211, 208, 208, 0.608)'
                   eventBorderColor = 'rgba(211, 208, 208, 0.608)'
