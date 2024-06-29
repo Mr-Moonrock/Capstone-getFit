@@ -31,7 +31,7 @@ function CalendarComp() {
   }, []);
 
    // DELETE BUTTON 
-  const handleDeleteExercise = (exerciseId) => {
+  const handleDeleteExercise = useCallback((exerciseId) => {
     setAllExercises((prevExercises) => 
       prevExercises.filter((exercise) => exercise.id !== exerciseId)
     );
@@ -41,9 +41,9 @@ function CalendarComp() {
     setDroppedTasks((prevTasks) =>
       prevTasks.filter((task) => task.id !== exerciseId)
     );
-  };
+  }, [setAllExercises, setTasks, setDroppedTasks]);
   
-  const makeExercisesDraggable = (exercises) => { 
+  const makeExercisesDraggable = useCallback((exercises) => { 
     setTimeout(() => {
       exercises.forEach(exercise => {
         const element = document.getElementById(`exercise-${exercise.id}`);
@@ -63,7 +63,7 @@ function CalendarComp() {
         }
       });
     }, 1000); 
-  }
+  }, [handleDeleteExercise])
 
   // CALL TO GET THE TARGET MUSCLES FROM API AND DROP DOWN BOX 
   useEffect(() => {
@@ -100,6 +100,7 @@ function CalendarComp() {
 
     // HANDLE EVENT DROP
   const handleEventDrop = (eventDropInfo) => {
+    console.log('handleEventDrop is being called', eventDropInfo);
     const newStartTime = eventDropInfo.event.start; 
     const newEndTime = eventDropInfo.event.end;
     const droppedExercise = {
@@ -109,13 +110,17 @@ function CalendarComp() {
       endTime: newEndTime
     };
   
+    console.log('Dropped exercise:', droppedExercise);
+
     const existingIndex = droppedTasks.findIndex(task => task.id === droppedExercise.id);
     if (existingIndex !== -1) {
       const updatedDroppedTasks = [...droppedTasks];
       updatedDroppedTasks[existingIndex] = droppedExercise;
       setDroppedTasks(updatedDroppedTasks); 
+      console.log('Updated dropped tasks:', updatedDroppedTasks);
     } else {
         setDroppedTasks(prevDroppedTasks => [...prevDroppedTasks, droppedExercise]);
+        console.log('New Dropped tasks:', [...droppedTasks, droppedExercise]);
     }
 
     const existingTaskIndex = tasks.findIndex(task => task.id === droppedExercise.id);
@@ -123,8 +128,10 @@ function CalendarComp() {
       const updatedTasks = [...tasks];
       updatedTasks[existingTaskIndex] = droppedExercise;
       setTasks(updatedTasks);
+      console.log('Updated tasks:', updatedTasks);
     } else {
       setTasks(prevTasks => [...prevTasks, droppedExercise]);
+      console.log('New tasks:', [...tasks, droppedExercise]);
     }
   };
 
