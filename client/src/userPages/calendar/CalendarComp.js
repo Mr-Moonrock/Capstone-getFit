@@ -123,12 +123,6 @@ function CalendarComp() {
   
     console.log('Dropped exercise:', droppedExercise);
 
-    useEffect(() => {
-      if (selectedTarget && tasksByTarget[selectedTarget]) {
-        makeExercisesDraggable(tasksByTarget[selectedTarget]);
-      }
-    }, [selectedTarget, tasksByTarget, makeExercisesDraggable]);
-
     setDroppedTasks(prevDroppedTasks => {
       console.log('Previous droppedTasks:', prevDroppedTasks);
       const existingIndex = droppedTasks.findIndex(task => task.id === droppedExercise.id);
@@ -157,6 +151,12 @@ function CalendarComp() {
       }
     });
   };
+
+  useEffect(() => {
+    if (selectedTarget && tasksByTarget[selectedTarget]) {
+      makeExercisesDraggable(tasksByTarget[selectedTarget]);
+    }
+  }, [selectedTarget, tasksByTarget, makeExercisesDraggable]);
 
       // SAVE BUTTON 
   const saveWorkoutsToDb = async (formattedExercises) => {
