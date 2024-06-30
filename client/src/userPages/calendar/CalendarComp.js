@@ -31,17 +31,17 @@ function CalendarComp() {
   }, []);
 
    // DELETE BUTTON 
-  const handleDeleteExercise = useCallback((exerciseId) => {
-    setAllExercises((prevExercises) => 
-      prevExercises.filter((exercise) => exercise.id !== exerciseId)
-    );
-    setTasks((prevTasks) => 
-      prevTasks.filter((task) => task.id !== exerciseId)
-    );
-    setDroppedTasks((prevTasks) =>
-      prevTasks.filter((task) => task.id !== exerciseId)
-    );
-  }, [setAllExercises, setTasks, setDroppedTasks]);
+  // const handleDeleteExercise = useCallback((exerciseId) => {
+  //   setAllExercises((prevExercises) => 
+  //     prevExercises.filter((exercise) => exercise.id !== exerciseId)
+  //   );
+  //   setTasks((prevTasks) => 
+  //     prevTasks.filter((task) => task.id !== exerciseId)
+  //   );
+  //   setDroppedTasks((prevTasks) =>
+  //     prevTasks.filter((task) => task.id !== exerciseId)
+  //   );
+  // }, [setAllExercises, setTasks, setDroppedTasks]);
   
   // const makeExercisesDraggable = useCallback((exercises) => { 
   //   setTimeout(() => {
