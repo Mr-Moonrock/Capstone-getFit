@@ -43,22 +43,40 @@ function CalendarComp() {
     );
   }, [setAllExercises, setTasks, setDroppedTasks]);
   
-  const makeExercisesDraggable = useCallback((exercises) => { 
+  // const makeExercisesDraggable = useCallback((exercises) => { 
+  //   setTimeout(() => {
+  //     exercises.forEach(exercise => {
+  //       const element = document.getElementById(`exercise-${exercise.id}`);
+  //       if (element) {
+  //         element.setAttribute('data-exercise-id', exercise.id);
+  //         const deleteButton = document.createElement('button');
+  //         deleteButton.innerHTML = '&times;';
+  //         deleteButton.className='draggable-exercise-delete-btn';
+  //         deleteButton.onclick = () => handleDeleteExercise(exercise.id);
+  //         element.appendChild(deleteButton);
+  //         element.draggable = true;
+  //         // element.addEventListener('dragstart', (e) => handleEventDragStart(e, exercise.id));
+
+  //         new Draggable(element, {
+  //           itemSelector: '.fc-event',
+  //           eventData: {
+  //             id: exercise.id,
+  //             title: exercise.name,
+  //             duration: '01:00',
+  //             extendedProps: { id: exercise.id }
+  //           }
+  //         })
+  //       }
+  //     });
+  //   }, 1000); 
+  // }, [handleDeleteExercise])
+
+  const makeExercisesDraggable = useCallback((exercises) => {
     setTimeout(() => {
       exercises.forEach(exercise => {
         const element = document.getElementById(`exercise-${exercise.id}`);
         if (element) {
-          element.setAttribute('data-exercise-id', exercise.id);
-          const deleteButton = document.createElement('button');
-          deleteButton.innerHTML = '&times;';
-          deleteButton.className='draggable-exercise-delete-btn';
-          deleteButton.onclick = () => handleDeleteExercise(exercise.id);
-          element.appendChild(deleteButton);
-          element.draggable = true;
-          // element.addEventListener('dragstart', (e) => handleEventDragStart(e, exercise.id));
-
           new Draggable(element, {
-            // itemSelector: '.fc-event',
             eventData: {
               id: exercise.id,
               title: exercise.name,
@@ -67,9 +85,9 @@ function CalendarComp() {
             }
           })
         }
-      });
-    }, 1000); 
-  }, [handleDeleteExercise])
+      })
+    }, 1000)
+  }, [])
 
   function generateRandomId() {
     return Math.floor(Math.random() * 900) + 100; 
@@ -323,7 +341,7 @@ function CalendarComp() {
               <h5 className='text-center' id='fullCalendar-DragNDrop-Header'> Drag-n-Drop an Exercise: </h5>
               <ul className="list-group" id='calendar-draggable-list'>
                   {tasksByTarget[selectedTarget] && tasksByTarget[selectedTarget].map((exercise, index) => (
-                <li key={index} id={`exercise-${exercise.id}`} data-exercise-id={randomId} className="list-group-item"> {exercise.name} </li>
+                <li key={index} id={`exercise-${exercise.id}`} data-exercise-id={randomId} className="calendar-exercise-list-group-item"> {exercise.name} </li>
                   ))}
               </ul>
             </div>
