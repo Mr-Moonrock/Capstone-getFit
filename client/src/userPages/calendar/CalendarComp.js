@@ -76,6 +76,8 @@ function CalendarComp() {
       exercises.forEach(exercise => {
         const element = document.getElementById(`exercise-${exercise.id}`);
         if (element) {
+          element.draggable = true;
+          element.addEventListener('dragstart', (e) => handleEventDragStart(e, exercise.id));
           new Draggable(element, {
             eventData: {
               id: exercise.id,
