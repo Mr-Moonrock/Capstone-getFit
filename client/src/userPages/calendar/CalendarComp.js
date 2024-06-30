@@ -292,8 +292,31 @@ function CalendarComp() {
       };
       console.log('NEW EVENT', newEvent)
       setEvents(prevEvents => [...prevEvents, newEvent]);
-    }
+    
+      const newDroppedTask = {
+        id: exercise.id,
+        name: exercise.name,
+        startTime: info.date,
+        endTime: newEvent.end
+    };
+
+    // Update the droppedTasks state
+    setDroppedTasks(prevDroppedTasks => {
+        console.log('Previous droppedTasks:', prevDroppedTasks);
+        const existingIndex = prevDroppedTasks.findIndex(task => task.id === newDroppedTask.id);
+        if (existingIndex !== -1) {
+            const updatedDroppedTasks = [...prevDroppedTasks];
+            updatedDroppedTasks[existingIndex] = newDroppedTask;
+            console.log('Updated dropped tasks:', updatedDroppedTasks);
+            return updatedDroppedTasks;
+        } else {
+            const newDroppedTasks = [...prevDroppedTasks, newDroppedTask];
+            console.log('New Dropped tasks:', newDroppedTasks);
+            return newDroppedTasks;
+        }
+    });
   }
+};
 
   // HELPER FUNCTIONS 
   // const handleEventDragStop = (eventDragInfo) => {
