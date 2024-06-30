@@ -196,17 +196,17 @@ function CalendarComp() {
     }
   };
 
-  const handleEventReceive = (info) => {
-    console.log('Event received:', info);
-    const newEvent = {
-      id: info.event.id,
-      title: info.event.title,
-      startTime: info.event.start,
-      endTime: info.event.end
-    };
-    setDroppedTasks(prevTasks => [...prevTasks, newEvent]);
-    setEvents(prevEvents => [...prevEvents, newEvent]);
-  };
+  // const handleEventReceive = (info) => {
+  //   console.log('Event received:', info);
+  //   const newEvent = {
+  //     id: info.event.id,
+  //     title: info.event.title,
+  //     startTime: info.event.start,
+  //     endTime: info.event.end
+  //   };
+  //   setDroppedTasks(prevTasks => [...prevTasks, newEvent]);
+  //   setEvents(prevEvents => [...prevEvents, newEvent]);
+  // };
 
   const handleClickSave = async () => {
     try {
@@ -407,7 +407,7 @@ function CalendarComp() {
                   selectMirror={true}
                   eventDrop = {handleEventDrop}
                   drop={(info) => handleExternalDrop(info)}
-                  eventReceive={(info) => handleEventReceive(info)}
+                  // eventReceive={(info) => handleEventReceive(info)}
                   // eventDragStop={(info) => handleEventDragStop(info)}          
                   selectable = {true} 
                   nowIndicator = {true}
