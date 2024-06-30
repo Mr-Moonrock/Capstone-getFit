@@ -152,11 +152,11 @@ function CalendarComp() {
     });
   };
 
-  useEffect(() => {
-    if (selectedTarget && tasksByTarget[selectedTarget]) {
-      makeExercisesDraggable(tasksByTarget[selectedTarget]);
-    }
-  }, [selectedTarget, tasksByTarget, makeExercisesDraggable]);
+  // useEffect(() => {
+  //   if (selectedTarget && tasksByTarget[selectedTarget]) {
+  //     makeExercisesDraggable(tasksByTarget[selectedTarget]);
+  //   }
+  // }, [selectedTarget, tasksByTarget, makeExercisesDraggable]);
 
       // SAVE BUTTON 
   const saveWorkoutsToDb = async (formattedExercises) => {
@@ -176,17 +176,17 @@ function CalendarComp() {
     }
   };
 
-  const handleEventReceive = (info) => {
-    console.log('Event received:', info);
-    const newEvent = {
-      id: info.event.id,
-      title: info.event.title,
-      startTime: info.event.start,
-      endTime: info.event.end
-    };
-    setDroppedTasks(prevTasks => [...prevTasks, newEvent]);
-    setEvents(prevEvents => [...prevEvents, newEvent]);
-  };
+  // const handleEventReceive = (info) => {
+  //   console.log('Event received:', info);
+  //   const newEvent = {
+  //     id: info.event.id,
+  //     title: info.event.title,
+  //     startTime: info.event.start,
+  //     endTime: info.event.end
+  //   };
+  //   setDroppedTasks(prevTasks => [...prevTasks, newEvent]);
+  //   setEvents(prevEvents => [...prevEvents, newEvent]);
+  // };
 
   const handleClickSave = async () => {
     try {
@@ -251,9 +251,9 @@ function CalendarComp() {
     }
   };
 
-  const handleEventDragStart = (e, exerciseId) => {
-    e.dataTransfer.setData('text', exerciseId.toString()); 
-  };
+  // const handleEventDragStart = (e, exerciseId) => {
+  //   e.dataTransfer.setData('text', exerciseId.toString()); 
+  // };
 
   const handleExternalDrop = (info) => {
     console.log('Drop INFO', info)
@@ -276,12 +276,12 @@ function CalendarComp() {
   }
 
   // HELPER FUNCTIONS 
-  const handleEventDragStop = (eventDragInfo) => {
-    if (!eventDragInfo.jsEvent.target.closest('.fc')) {
-      const eventId = eventDragInfo.event.id;
-      setEvents((prevEvents) => prevEvents.filter((event) => event.id !== eventId));
-    }
-  };
+  // const handleEventDragStop = (eventDragInfo) => {
+  //   if (!eventDragInfo.jsEvent.target.closest('.fc')) {
+  //     const eventId = eventDragInfo.event.id;
+  //     setEvents((prevEvents) => prevEvents.filter((event) => event.id !== eventId));
+  //   }
+  // };
 
   useEffect(() => {
     console.log('Updated events for FullCalendar:', events.concat(droppedTasks));
@@ -364,8 +364,8 @@ function CalendarComp() {
                   selectMirror={true}
                   eventDrop = {handleEventDrop}
                   drop={(info) => handleExternalDrop(info)}
-                  eventReceive={(info) => handleEventReceive(info)}
-                  eventDragStop={(info) => handleEventDragStop(info)}          
+                  // eventReceive={(info) => handleEventReceive(info)}
+                  // eventDragStop={(info) => handleEventDragStop(info)}          
                   selectable = {true} 
                   nowIndicator = {true}
                   select = {handleSelect} 
@@ -374,6 +374,7 @@ function CalendarComp() {
                   eventBackgroundColor= 'rgba(211, 208, 208, 0.608)'
                   eventBorderColor = 'rgba(211, 208, 208, 0.608)'
                   themeSystem = 'bootstrap5'
+                  // dateClick={handleDateClick}
               />
             </div>
           </div>
