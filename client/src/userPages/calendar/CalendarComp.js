@@ -62,8 +62,6 @@ function CalendarComp() {
             eventData: {
               id: exercise.id,
               title: exercise.name,
-              start: null, 
-              end: null, 
               duration: '01:00',
               extendedProps: { id: exercise.id }
             }
@@ -124,6 +122,12 @@ function CalendarComp() {
     };
   
     console.log('Dropped exercise:', droppedExercise);
+
+    useEffect(() => {
+      if (selectedTarget && tasksByTarget[selectedTarget]) {
+        makeExercisesDraggable(tasksByTarget[selectedTarget]);
+      }
+    }, [selectedTarget, tasksByTarget, makeExercisesDraggable]);
 
     setDroppedTasks(prevDroppedTasks => {
       console.log('Previous droppedTasks:', prevDroppedTasks);
@@ -365,7 +369,7 @@ function CalendarComp() {
                   selectable = {true} 
                   nowIndicator = {true}
                   select = {handleSelect} 
-                  events={events.concat(droppedTasks)} 
+                  events={events} 
                   height = {1200}
                   eventBackgroundColor= 'rgba(211, 208, 208, 0.608)'
                   eventBorderColor = 'rgba(211, 208, 208, 0.608)'
