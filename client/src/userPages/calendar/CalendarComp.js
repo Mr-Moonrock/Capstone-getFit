@@ -271,9 +271,9 @@ function CalendarComp() {
     }
   };
 
-  // const handleEventDragStart = (e, exerciseId) => {
-  //   e.dataTransfer.setData('text', exerciseId.toString()); 
-  // };
+  const handleEventDragStart = (e, exerciseId) => {
+    e.dataTransfer.setData('text', exerciseId.toString()); 
+  };
 
   const handleExternalDrop = (info) => {
     console.log('Drop INFO', info)
