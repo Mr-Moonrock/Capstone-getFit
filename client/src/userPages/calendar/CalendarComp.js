@@ -58,7 +58,7 @@ function CalendarComp() {
           // element.addEventListener('dragstart', (e) => handleEventDragStart(e, exercise.id));
 
           new Draggable(element, {
-            itemSelector: '.fc-event',
+            // itemSelector: '.fc-event',
             eventData: {
               id: exercise.id,
               title: exercise.name,
