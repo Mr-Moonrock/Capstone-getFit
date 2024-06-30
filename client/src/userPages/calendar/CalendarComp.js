@@ -58,6 +58,7 @@ function CalendarComp() {
           element.addEventListener('dragstart', (e) => handleEventDragStart(e, exercise.id));
 
           new Draggable(element, {
+            itemSelector: '.fc-event',
             eventData: {
               id: exercise.id,
               title: exercise.name,
@@ -261,7 +262,7 @@ function CalendarComp() {
     if (exercise) {
       const newEvent = {
         id: exercise.id,
-        title: exercise.name,
+        title: info.draggedEl.innerText,
         start: info.date,
         end: new Date(info.date.getTime() + 60 * 60 * 1000), 
       };
@@ -362,6 +363,7 @@ function CalendarComp() {
                   eventReceive={(info) => handleEventReceive(info)}
                   eventDragStop={(info) => handleEventDragStop(info)}          
                   selectable = {true} 
+                  nowIndicator = {true}
                   select = {handleSelect} 
                   events={events.concat(droppedTasks)} 
                   height = {1200}
