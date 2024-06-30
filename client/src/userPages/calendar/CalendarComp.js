@@ -213,7 +213,7 @@ function CalendarComp() {
       console.log('Dropped taskes ready to be formatted', droppedTasks)
       const formattedExercises = droppedTasks.map(task => ({
         userId: currentUser.id,
-        name: task.title,
+        name: task.name,
         exerciseDate: task.startTime.toLocaleDateString(
           'en-US', { month: 'short', day: 'numeric', year: 'numeric' }),
         exerciseDayOfWeek: task.startTime.toLocaleDateString(
