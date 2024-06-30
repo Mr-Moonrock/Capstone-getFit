@@ -55,7 +55,7 @@ function CalendarComp() {
           deleteButton.onclick = () => handleDeleteExercise(exercise.id);
           element.appendChild(deleteButton);
           element.draggable = true;
-          element.addEventListener('dragstart', (e) => handleEventDragStart(e, exercise.id));
+          // element.addEventListener('dragstart', (e) => handleEventDragStart(e, exercise.id));
 
           new Draggable(element, {
             itemSelector: '.fc-event',
